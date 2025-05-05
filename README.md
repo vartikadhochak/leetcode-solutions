@@ -65,9 +65,34 @@ Output: false
 Constraints:
 1 <= n <= 231 - 1
 
-EXPLANAtion:
+Explanation:
 The common approach is to use a HashSet to keep track of numbers we’ve already seen.
 If we ever see the same number again, we are in a loop.
 1.HashSet seen: Keeps track of numbers we’ve already processed.
 2.Loop condition: Continue until we hit 1 or detect a repeat.
 3.getNext helper: Computes the sum of the squares of the digits.
+
+Problem 4:Given the head of a linked list and an integer val, remove all the nodes of the linked list that has 
+Node.val == val, and return the new head.
+
+Example 1:
+Input: head = [1,2,6,3,4,5,6], val = 6
+Output: [1,2,3,4,5]
+
+Example 2:
+Input: head = [], val = 1
+Output: []
+
+Constraints:
+The number of nodes in the list is in the range [0, 104].
+1 <= Node.val <= 50
+0 <= val <= 50
+
+Explanation:
+ListNode Class: Defines a simple linked list node with an integer value (val) and a reference to the next node (next).
+removeElements Method: This method removes all nodes with the given value val from the linked list.
+main Method:
+A linked list 1 -> 2 -> 6 -> 3 -> 4 -> 5 -> 6 is created.
+The original list is printed.
+The removeElements method is called to remove all nodes with the value 6.
+The modified list is printed, showing the result after the removal.
