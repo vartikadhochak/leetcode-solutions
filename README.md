@@ -1,5 +1,5 @@
-Day-1:
-PROBLEM: REVERSE LINKED LIST
+ ********************************************************* DAY-1 *********************************************************
+                                                PROBLEM 1: REVERSE LINKED LIST
 Given the head of a singly linked list, reverse the list, and return the reversed list.
 Example 1:
 Input: head = [1,2,3,4,5]
@@ -18,7 +18,8 @@ reverseList → Iteratively reverses the linked list by changing each node’s n
 printList → Prints all node values in order.
 main → Builds a sample list 1 → 2 → 3 → 4 → 5, prints it, reverses it, and prints the reversed list.
 
-PROBLEM 2: MISSING NUMBER
+
+                                         PROBLEM 2: MISSING NUMBER
 Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
 
 Example 1:
@@ -39,7 +40,133 @@ Explanation:
 missingNumber → Calculates the expected sum (0 to n) and subtracts the actual sum to find the missing number.
 main → Tests the method with an example array and prints the result.
 
-Problem 1: Palindrome Linked List
+---------------------------------------------------------Day-2------------------------------------------------------------
+                                       
+                                        PROBLEM 1: MIDDLE OF THE LINKED LIST
+Given the head of a singly linked list, return the middle node of the linked list.
+If there are two middle nodes, return the second middle node.
+
+Example 1:
+Input: head = [1,2,3,4,5]
+Output: [3,4,5]
+
+Example 2:
+Input: head = [1,2,3,4,5,6]
+Output: [4,5,6]
+
+Constraints:
+The number of nodes in the list is in the range [1, 100].
+1 <= Node.val <= 100
+
+Explanation:
+mergeTwoLists → Merges two sorted linked lists into one sorted list.
+main → Builds two sample sorted lists, merges them, and prints the result.
+
+                                            PROBLEM 2: ADD DIGITS
+Given an integer num, repeatedly add all its digits until the result has only one digit, and return it.
+
+Example 1:
+Input: num = 38
+Output: 2
+
+Example 2:
+Input: num = 0
+Output: 0
+ 
+Constraints:
+0 <= num <= 231 - 1
+
+EXPLANATION:
+addDigits → Repeatedly sums the digits of num until a single-digit number is left.
+main → Tests the method with an example (38) and prints the result.
+
+ ---------------------------------------------------------Day-3-----------------------------------------------------------
+                                           
+                                            PROBLEM 1: MERGE TWO SORTED LISTS                         
+You are given the heads of two sorted linked lists list1 and list2.
+Merge the two lists into one sorted list. The list should be made by splicing together the nodes of the first two lists.
+Return the head of the merged linked list.
+
+Example 1:   
+Input: list1 = [1,2,4], list2 = [1,3,4]
+Output: [1,1,2,3,4,4]
+
+Example 2:
+Input: list1 = [], list2 = []
+Output: []
+
+Constraints:
+The number of nodes in both lists is in the range [0, 50].
+-100 <= Node.val <= 100
+Both list1 and list2 are sorted in non-decreasing order.   
+
+EXPLANATION:
+mergeTwoLists → Merges two sorted linked lists into one sorted list using a dummy node.
+main → Builds two example lists, merges them, and prints the result.
+
+                                                PROBLEM 2: PERFECT NUMBER
+A perfect number is a positive integer that is equal to the sum of its positive divisors, excluding the number itself. A divisor of an integer x is an integer that can divide x evenly.
+Given an integer n, return true if n is a perfect number, otherwise return false.
+
+Example 1:
+Input: num = 28
+Output: true
+
+Example 2:
+Input: num = 7
+Output: false
+ 
+Constraints:
+1 <= num <= 108
+
+EXPLANATION:
+checkPerfectNumber → Checks if a number equals the sum of its proper divisors (excluding itself).
+main → Tests the method with an example (28) and prints whether it’s a perfect number.
+
+---------------------------------------------------------Day-4-----------------------------------------------------------
+
+                                            PROBLEM 1: LINKED LIST CYCLE
+Given head, the head of a linked list, determine if the linked list has a cycle in it.
+There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
+Return true if there is a cycle in the linked list. Otherwise, return false.
+
+Example 1:
+Input: head = [3,2,0,-4], pos = 1
+Output: true
+
+Example 2:
+Input: head = [1,2], pos = 0
+Output: true
+
+Constraints:
+The number of the nodes in the list is in the range [0, 104].
+-105 <= Node.val <= 105
+pos is -1 or a valid index in the linked-list.
+
+EXPLANATION:
+hasCycle → Uses Floyd’s Tortoise and Hare (slow/fast pointers) to detect if the linked list has a cycle.
+main → Builds a list with a cycle (links last node back to an earlier node) and checks if the method correctly detects it.
+
+                                            PROBLEM 2: PALINDROME NUMBER
+Given an integer x, return true if x is a palindrome, and false otherwise.
+
+Example 1:
+Input: x = 121
+Output: true
+
+Example 2:
+Input: x = -121
+Output: false
+
+Constraints:
+-231 <= x <= 231 - 1
+
+EXPLANATION:
+isPalindrome → Reverses half of the number and compares it to the other half to check for a palindrome.
+main → Tests the method with an example (121) and prints whether it’s a palindrome.
+ 
+---------------------------------------------------------Day-5-----------------------------------------------------------
+                                        PROBLEM 1: Palindrome Linked List
 Problem Statement:Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
 A palindrome is a word, phrase, number, or other sequence of characters that reads the same forward and backward
 
@@ -61,7 +188,7 @@ Comparison: We then compare the nodes in the first half with the nodes in the re
 Time Complexity: O(n), where n is the number of nodes in the list. We traverse the list once to find the middle, reverse the second half, and then compare both halves.
 Space Complexity: O(1), as we only use a few pointers to solve the problem, no extra space is needed.
 
-Problem 2: Perfect Square
+                                            Problem 2: VALID PERFECT SQUARE
 Problem Statement:
 Given a positive integer num, return true if num is a perfect square or false otherwise.
 A perfect square is an integer that is the square of some other integer.
@@ -82,9 +209,10 @@ Square Comparison: At each step, we calculate the square of the mid-point and co
 Time Complexity: O(log n), where n is the input number. Binary search reduces the search space by half at each step.
 Space Complexity: O(1), as we only use a constant amount of space for the algorithm (pointers and variable)
 
+---------------------------------------------------------Day-6-----------------------------------------------------------
 
-Problem 3:A happy number is a number defined by the following process:
-
+                                                PROBLEM 3: HAPPY NUMBER
+A happy number is a number defined by the following process:
 Starting with any positive integer, replace the number by the sum of the squares of its digits.
 Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.
 Those numbers for which this process ends in 1 are happy.
@@ -113,7 +241,9 @@ If we ever see the same number again, we are in a loop.
 2.Loop condition: Continue until we hit 1 or detect a repeat.
 3.getNext helper: Computes the sum of the squares of the digits.
 
-Problem 4:Given the head of a linked list and an integer val, remove all the nodes of the linked list that has 
+
+                                    Problem 4: REMOVE LINKED LIST ELEMENT
+Given the head of a linked list and an integer val, remove all the nodes of the linked list that has 
 Node.val == val, and return the new head.
 
 Example 1:
@@ -137,3 +267,48 @@ A linked list 1 -> 2 -> 6 -> 3 -> 4 -> 5 -> 6 is created.
 The original list is printed.
 The removeElements method is called to remove all nodes with the value 6.
 The modified list is printed, showing the result after the removal.
+
+---------------------------------------------------------Day-7-----------------------------------------------------------
+
+                                                PROBLEM 1: ROTATE LIST
+Given the head of a linked list, rotate the list to the right by k places.
+ 
+Example 1: 
+Input: head = [1,2,3,4,5], k = 2
+Output: [4,5,1,2,3]
+
+Example 2:
+Input: head = [0,1,2], k = 4
+Output: [2,0,1]
+ 
+Constraints:
+The number of nodes in the list is in the range [0, 500].
+-100 <= Node.val <= 100
+0 <= k <= 2 * 109     
+
+EXPLANATION:
+1.rotateRight: The core function that rotates the list right by k positions.
+2.printList: A helper method to print the linked list for visual verification.
+3.main: Creates a sample linked list [1, 2, 3, 4, 5], rotates it by 2 and then by 4, printing the results after each rotation.
+
+
+                                                PROBLEM 2: PLUS ONE     
+You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
+Increment the large integer by one and return the resulting array of digits.
+
+Example 1:
+Input: digits = [1,2,3]
+Output: [1,2,4]
+
+Example 2:
+Input: digits = [4,3,2,1]
+Output: [4,3,2,2]
+
+Constraints:
+1 <= digits.length <= 100
+0 <= digits[i] <= 9
+digits does not contain any leading 0's.
+
+EXPLANATION:
+1.plusOne → Adds one to the array, handling carry-over properly; if needed, it creates a new array when all digits are 9.
+2.main → Runs example cases and prints both input and output arrays.
