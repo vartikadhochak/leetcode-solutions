@@ -1,5 +1,5 @@
 Day-1:
-Problem1:
+PROBLEM: REVERSE LINKED LIST
 Given the head of a singly linked list, reverse the list, and return the reversed list.
 Example 1:
 Input: head = [1,2,3,4,5]
@@ -17,6 +17,27 @@ Explanation:
 reverseList → Iteratively reverses the linked list by changing each node’s next pointer to point backward.
 printList → Prints all node values in order.
 main → Builds a sample list 1 → 2 → 3 → 4 → 5, prints it, reverses it, and prints the reversed list.
+
+PROBLEM 2: MISSING NUMBER
+Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
+
+Example 1:
+Input: nums = [3,0,1]
+Output: 2
+
+Example 2:
+Input: nums = [0,1]
+Output: 2
+
+Constraints:
+n == nums.length
+1 <= n <= 104
+0 <= nums[i] <= n
+All the numbers of nums are unique
+
+Explanation:
+missingNumber → Calculates the expected sum (0 to n) and subtracts the actual sum to find the missing number.
+main → Tests the method with an example array and prints the result.
 
 Problem 1: Palindrome Linked List
 Problem Statement:Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
