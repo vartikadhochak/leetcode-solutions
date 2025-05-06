@@ -1,4 +1,5 @@
  ---------------------------------------------------------Day-1-----------------------------------------------------------
+                                                
                                                 PROBLEM 1: REVERSE LINKED LIST
 Given the head of a singly linked list, reverse the list, and return the reversed list.
 Example 1:
@@ -166,6 +167,7 @@ isPalindrome → Reverses half of the number and compares it to the other half t
 main → Tests the method with an example (121) and prints whether it’s a palindrome.
  
 ---------------------------------------------------------Day-5-----------------------------------------------------------
+                                      
                                         PROBLEM 1: Palindrome Linked List
 Problem Statement:Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
 A palindrome is a word, phrase, number, or other sequence of characters that reads the same forward and backward
