@@ -314,3 +314,59 @@ digits does not contain any leading 0's.
 EXPLANATION:
 1.plusOne → Adds one to the array, handling carry-over properly; if needed, it creates a new array when all digits are 9.
 2.main → Runs example cases and prints both input and output arrays.
+
+---------------------------------------------------------Day-8-----------------------------------------------------------
+
+                                           PROBLEM 1: ODD EVEN LINKED LIST
+Given the head of a singly linked list, group all the nodes with odd indices together followed by the nodes with even indices, and return the reordered list.
+The first node is considered odd, and the second node is even, and so on.
+Note that the relative order inside both the even and odd groups should remain as it was in the input.
+You must solve the problem in O(1) extra space complexity and O(n) time complexity.
+
+Example 1:  
+Input: head = [1,2,3,4,5]
+Output: [1,3,5,2,4]
+
+Example 2:   
+Input: head = [2,1,3,5,6,4,7]
+Output: [2,3,6,7,1,5,4]
+
+Constraints:
+The number of nodes in the linked list is in the range [0, 104].
+-106 <= Node.val <= 106   
+
+EXPLANATION:
+odd and even are pointers to traverse the odd and even nodes respectively.
+evenHead is stored to reconnect the end of the odd list to the beginning of the even list.
+The loop updates odd and even to skip nodes appropriately.
+After traversal, we reconnect the odd list to the even list.
+
+
+                                       PROBLEM 2:EXCEL SHEET COLUMN NUMBER 
+Given a string columnTitle that represents the column title as appears in an Excel sheet, return its corresponding column number.
+For example:
+A -> 1
+B -> 2
+C -> 3
+...
+Z -> 26
+AA -> 27
+AB -> 28 
+
+Example 1:
+Input: columnTitle = "A"
+Output: 1
+
+Example 2:
+Input: columnTitle = "AB"
+Output: 28
+ 
+Constraints:
+1 <= columnTitle.length <= 7
+columnTitle consists only of uppercase English letters.
+columnTitle is in the range ["A", "FXSHRXW"].                                       
+
+EXPLANATION:
+For "AB":
+'A' → 1 → 1 * 26 = 26
+'B' → 2 → 26 + 2 = 28
