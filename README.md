@@ -370,3 +370,56 @@ EXPLANATION:
 For "AB":
 'A' → 1 → 1 * 26 = 26
 'B' → 2 → 26 + 2 = 28
+
+---------------------------------------------------------Day-9-----------------------------------------------------------
+
+                                    PROBLEM 1: SWAPPING NODES IN A LINKED LIST
+You are given the head of a linked list, and an integer k.
+Return the head of the linked list after swapping the values of the kth node from the beginning and the kth node from the end (the list is 1-indexed).
+
+Example 1:
+Input: head = [1,2,3,4,5], k = 2
+Output: [1,4,3,2,5]
+
+Example 2:
+Input: head = [7,9,6,6,7,8,3,0,9,5], k = 5
+Output: [7,9,6,6,8,7,3,0,9,5]
+ 
+Constraints:
+The number of nodes in the list is n.
+1 <= k <= n <= 105
+0 <= Node.val <= 100
+
+EXPLANATION:
+Traverse once to get length n.
+Traverse again to find first and second.
+Swap their values.
+This works in O(n) time and O(1) space → optimal.
+
+                                       PROBLEM 2: Nth DIGIT
+Given an integer n, return the nth digit of the infinite integer sequence [1, 2,3, 4, 5, 6, 7, 8, 9, 10, 11, ...].
+
+Example 1:
+Input: n = 3
+Output: 3
+
+Example 2:
+Input: n = 11
+Output: 0
+
+Constraints:
+1 <= n <= 231 - 1
+
+EXPLANATION:
+1.Find the digit length (d) where the n-th digit lies.We subtract the counts until n fits into a digit length.
+
+2.Find the actual number where the digit is located.Once we know the digit length d,
+The starting number = start = 10^(d - 1)
+Offset index = index = (n - 1) / d
+Actual number = start + index
+
+3.Find the digit inside the number.We can convert the number to a string and pick the digit:
+digit index = (n - 1) % d
+
+
+
