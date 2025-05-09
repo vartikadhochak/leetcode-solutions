@@ -421,5 +421,58 @@ Actual number = start + index
 3.Find the digit inside the number.We can convert the number to a string and pick the digit:
 digit index = (n - 1) % d
 
+---------------------------------------------------------Day-10-----------------------------------------------------------
+
+                                              PROBLEM 1: DELETE MIDDLE NODE
+You are given the head of a linked list. Delete the middle node, and return the head of the modified linked list.                                    
+The middle node of a linked list of size n is the ⌊n / 2⌋th node from the start using 0-based indexing, where ⌊x⌋ denotes the largest integer less than or equal to x.
+For n = 1, 2, 3, 4, and 5, the middle nodes are 0, 1, 1, 2, and 2, respectively.
+
+Example 1:
+Input: head = [1,3,4,7,1,2,6]
+Output: [1,3,4,1,2,6]
+
+Example 2:
+Input: head = [1,2,3,4]
+Output: [1,2,4]
+
+Constraints:
+The number of nodes in the list is in the range [1, 10^5].
+1 <= Node.val <= 10^5
+
+EXPLANATION:
+We want to delete the middle node from the linked list.We can find the middle node using the slow and fast pointer technique:
+slow moves 1 step at a time.
+fast moves 2 steps at a time.
+When fast reaches the end, slow will be at the middle.
+Once we find the middle node, we need to remove it by adjusting the next pointer of the previous node.
+
+For input [1,3,4,7,1,2,6], slow will point at 7 at the end of the loop.
+prev will point at 4.
+We skip the middle node: prev.next = slow.next → link 4 to 1.
+
+
+                                       PROBLEM 2: BULB SWITCHER
+There are n bulbs that are initially off. You first turn on all the bulbs, then you turn off every second bulb.
+On the third round, you toggle every third bulb (turning on if it's off or turning off if it's on). For the ith round, you toggle every i bulb. For the nth round, you only toggle the last bulb.
+Return the number of bulbs that are on after n rounds.
+
+Example 1:
+Input: n = 3
+Output: 1
+
+Example 2:
+Input: n = 0
+Output: 0
+
+Constraints:
+0 <= n <= 10^9
+
+EXPLANATION:
+Each bulb is toggled once for every factor (divisor) of its position.
+     * Most numbers have an even number of factors(divisors come in pairs),so bulbs will end up being toggled an even number of times → off.
+     * Only perfect squares have an odd number of factors,so only bulbs in perfect square positions remain on.
+     * The number of bulbs that remain on is equal to the number of perfect squares less than or equal to n → that is integer part of sqrt(n).
+     
 
 
