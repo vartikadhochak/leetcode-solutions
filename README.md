@@ -421,7 +421,8 @@ Actual number = start + index
 3.Find the digit inside the number.We can convert the number to a string and pick the digit:
 digit index = (n - 1) % d
 
----------------------------------------------------------Day-10-----------------------------------------------------------
+---------------------------------------------------------Day-10----------------------------------------------------
+
 
                                               PROBLEM 1: DELETE MIDDLE NODE
 You are given the head of a linked list. Delete the middle node, and return the head of the modified linked list.                                    
@@ -474,5 +475,55 @@ Each bulb is toggled once for every factor (divisor) of its position.
      * Only perfect squares have an odd number of factors,so only bulbs in perfect square positions remain on.
      * The number of bulbs that remain on is equal to the number of perfect squares less than or equal to n → that is integer part of sqrt(n).
      
+---------------------------------------------------------Day-11----------------------------------------------------
+
+                                   PROBLEM 1:remove-nth-node-from-end-of-list
+
+Given the head of a linked list, remove the nth node from the end of the list and return its head.
+
+Example 1:
+Input: head = [1,2,3,4,5], n = 2
+Output: [1,2,3,5]
+Example 2:
+
+Input: head = [1], n = 1
+Output: []
+
+Constraints:
+The number of nodes in the list is sz.
+1 <= sz <= 30
+0 <= Node.val <= 100
+1 <= n <= sz
+
+EXPLANATION:
+We use a dummy node to handle edge cases easily (like removing the head node).
+We use two pointers (first and second) to create a gap of n nodes.
+Once first reaches the end, second will be just before the node we want to remove.
+We adjust second.next to skip the target node.
 
 
+                                       PROBLEM 2: FACTORIAL TRAILING ZEROES
+Given an integer n, return the number of trailing zeroes in n!.
+Note that n! = n * (n - 1) * (n - 2) * ... * 3 * 2 * 1.
+
+Example 1:
+Input: n = 3
+Output: 0
+
+Example 2:
+Input: n = 5
+Output: 1
+
+Constraints:
+0 <= n <= 10^4
+
+EXPLANATION:
+Trailing zeroes in a factorial come from factors of 10.
+Each 10 is formed by a pair of 2 and 5.
+Since there are always more 2’s than 5’s, the number of 5’s determines the number of trailing zeroes.
+
+So, for every multiple of 5, we get one factor of 5. For every multiple of 25, we get an extra factor(because 
+25=5^2), and so on.We can repeatedly divide n by 5, 25, 125, etc., and sum the results.
+
+We keep dividing n by 5, adding the quotient to count.
+This counts how many factors of 5 are in n!.
