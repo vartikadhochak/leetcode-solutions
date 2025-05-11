@@ -484,6 +484,7 @@ Given the head of a linked list, remove the nth node from the end of the list an
 Example 1:
 Input: head = [1,2,3,4,5], n = 2
 Output: [1,2,3,5]
+
 Example 2:
 
 Input: head = [1], n = 1
@@ -527,3 +528,54 @@ So, for every multiple of 5, we get one factor of 5. For every multiple of 25, w
 
 We keep dividing n by 5, adding the quotient to count.
 This counts how many factors of 5 are in n!.
+
+---------------------------------------------------------Day-12----------------------------------------------------
+
+                                   PROBLEM 1:INSERT GCD IN LINKED LIST
+
+Given the head of a linked list head, in which each node contains an integer value.
+Between every pair of adjacent nodes, insert a new node with a value equal to the greatest common divisor of them.
+Return the linked list after insertion.
+The greatest common divisor of two numbers is the largest positive integer that evenly divides both numbers.
+
+Example 1:
+Input: head = [18,6,10,3]
+Output: [18,6,6,2,10,1,3]
+
+Example 2:
+Input: head = [7]
+Output: [7]
+
+Constraints:
+The number of nodes in the list is in the range [1, 5000].
+1 <= Node.val <= 1000
+
+EXPLANATION:
+1.Start from the head of the linked list and traverse while current.next is not null.
+2.For every pair of adjacent nodes (current and current.next):Compute gcd(current.val, current.next.val).
+3.Create a new node with the GCD value.
+4.Insert this new node between current and current.next.
+5.Move the pointer two steps ahead to skip the newly inserted node and repeat the process.
+
+Use the Euclidean algorithm to compute GCD efficiently.
+
+
+                                       PROBLEM 2: COUNT ODD NUMBERS
+Given two non-negative integers low and high. Return the count of odd numbers between low and high (inclusive).
+
+Example 1:
+Input: low = 3, high = 7
+Output: 3
+
+Example 2:
+Input: low = 8, high = 10
+Output: 1
+ 
+Constraints:
+0 <= low <= high <= 10^9
+
+EXPLANATION:
+Count how many odd numbers are from 1 to high: this is (high + 1) / 2.
+Count how many odd numbers are from 1 to low - 1: this is (low) / 2.
+The difference gives the count of odd numbers in the inclusive range [low, high].
+This avoids any loops and works in constant time.
