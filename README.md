@@ -579,3 +579,69 @@ Count how many odd numbers are from 1 to high: this is (high + 1) / 2.
 Count how many odd numbers are from 1 to low - 1: this is (low) / 2.
 The difference gives the count of odd numbers in the inclusive range [low, high].
 This avoids any loops and works in constant time.
+
+---------------------------------------------------------Day-13----------------------------------------------------
+
+                               PROBLEM 1:remove-duplicates-from-sorted-list-ii
+
+Given the head of a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list. Return the linked list sorted as well.
+
+Example 1:
+Input: head = [1,2,3,3,4,4,5]
+Output: [1,2,5]
+
+Example 2:
+Input: head = [1,1,1,2,3]
+Output: [2,3]
+ 
+Constraints:
+The number of nodes in the list is in the range [0, 300].
+-100 <= Node.val <= 100
+The list is guaranteed to be sorted in ascending order.
+
+EXPLANATION:
+1.Dummy Node: ListNode dummy = new ListNode(0, head);
+  Used a dummy node to handle edge cases where the head itself might be a duplicate.
+  prev starts at dummy.
+
+2.Loop Through the List: while (head != null) 
+  We check for duplicates with: if (head.next != null && head.val == head.next.val)
+
+3.Skip Duplicates: 
+     int duplicateVal = head.val;
+     while (head != null && head.val == duplicateVal) 
+          head = head.next;
+  If duplicates are found, skip all nodes with the same value.
+
+4.Remove Duplicates: prev.next = head;
+  After skipping duplicates, we point prev.next to the next distinct node.
+  
+5.Move Pointers:If no duplicates, move both prev and head forward.
+
+                                    PROBLEM 2: sign-of-the-product-of-an-array
+
+Implement a function signFunc(x) that returns:
+1 if x is positive.
+-1 if x is negative.
+0 if x is equal to 0.
+You are given an integer array nums. Let product be the product of all values in the array nums.
+Return signFunc(product).
+
+Example 1:
+Input: nums = [-1,-2,-3,-4,3,2,1]
+Output: 1
+
+Example 2:
+Input: nums = [1,5,0,2,-3]
+Output: 0
+
+Constraints:
+1 <= nums.length <= 1000
+-100 <= nums[i] <= 100
+
+EXPLANATION:
+Instead of multiplying all elements (which can cause overflow), observe:
+If 0 is in the array → return 0
+Count how many negative numbers:
+If the count is even, product is positive → return 1
+If the count is odd, product is negative → return -1
