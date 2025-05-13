@@ -645,3 +645,49 @@ If 0 is in the array → return 0
 Count how many negative numbers:
 If the count is even, product is positive → return 1
 If the count is odd, product is negative → return -1
+
+---------------------------------------------------------Day-14-----------------------------------------------------------
+
+                                    PROBLEM 1: PARTITION LIST
+Given the head of a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x.
+You should preserve the original relative order of the nodes in each of the two partitions.
+
+Example 1:
+Input: head = [1,4,3,2,5,2], x = 3
+Output: [1,2,2,4,3,5]
+
+Example 2:
+Input: head = [2,1], x = 2
+Output: [1,2]
+ 
+Constraints:
+The number of nodes in the list is in the range [0, 200].
+-100 <= Node.val <= 100
+-200 <= x <= 200
+
+EXPLANATION:
+
+1.Use two dummy nodes to build two lists: before for nodes < x and after for nodes >= x.
+2.Traverse the original list and append nodes to respective lists.
+3.Join the two lists at the end.
+
+                                       PROBLEM 2: REVERSE INTEGER
+Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
+
+Example 1:
+Input: x = 123
+Output: 321
+
+Example 2:
+Input: x = -123
+Output: -321
+
+Constraints:
+-231 <= x <= 231 - 1
+
+EXPLANATION:
+
+1.Extract the last digit using x % 10.
+2.Build the reversed number by result = result * 10 + digit.
+3.Before every multiplication, check for overflow to avoid exceeding Integer.MAX_VALUE or going below Integer.MIN_VALUE.
