@@ -691,3 +691,65 @@ EXPLANATION:
 1.Extract the last digit using x % 10.
 2.Build the reversed number by result = result * 10 + digit.
 3.Before every multiplication, check for overflow to avoid exceeding Integer.MAX_VALUE or going below Integer.MIN_VALUE.
+
+---------------------------------------------------------Day-15-----------------------------------------------------------
+
+                                    PROBLEM 1: Add Two Numbers
+You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+Example 1:
+Input: l1 = [2,4,3], l2 = [5,6,4]
+Output: [7,0,8]
+
+Example 2:
+Input: l1 = [0], l2 = [0]
+Output: [0]
+
+Constraints:
+The number of nodes in each linked list is in the range [1, 100].
+0 <= Node.val <= 9
+It is guaranteed that the list represents a number that does not have leading zeros.
+
+EXPLANATION:
+1.Use a dummy node to simplify the construction of the result list.
+2.Traverse both linked lists (l1 and l2) simultaneously.
+3.At each step, add values from both nodes and carry from the previous step.
+4.Create a new node with the digit part (sum % 10) and move the carry forward (sum / 10).
+5.At the end, if there’s a non-zero carry, add a final node.
+
+                                       PROBLEM 2: Excel Sheet Column Title
+
+Given an integer columnNumber, return its corresponding column title as it appears in an Excel sheet.
+
+For example:
+
+A -> 1
+B -> 2
+C -> 3
+...
+Z -> 26
+AA -> 27
+AB -> 28 
+...
+ 
+Example 1:
+Input: columnNumber = 1
+Output: "A"
+
+Example 2:
+Input: columnNumber = 28
+Output: "AB"
+ 
+Constraints:
+1 <= columnNumber <= 231 - 1
+
+EXPLANATION:
+1.Use a StringBuilder to construct the result in reverse.
+2.While the column number is greater than 0:
+  i.Subtract 1 to adjust for 1-based indexing.
+  ii.Find the character for (columnNumber - 1) % 26.
+  iii.Append corresponding character ('A' + remainder).
+  iv.Divide the number by 26 to move to the next digit.
+3.Reverse the result at the end.
+
