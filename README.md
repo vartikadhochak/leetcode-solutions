@@ -753,3 +753,217 @@ EXPLANATION:
   iv.Divide the number by 26 to move to the next digit.
 3.Reverse the result at the end.
 
+---------------------------------------------------------Day-14-----------------------------------------------------------
+
+                                    PROBLEM 1: PARTITION LIST
+Given the head of a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x.
+You should preserve the original relative order of the nodes in each of the two partitions.
+
+Example 1:
+Input: head = [1,4,3,2,5,2], x = 3
+Output: [1,2,2,4,3,5]
+
+Example 2:
+Input: head = [2,1], x = 2
+Output: [1,2]
+ 
+Constraints:
+The number of nodes in the list is in the range [0, 200].
+-100 <= Node.val <= 100
+-200 <= x <= 200
+
+EXPLANATION:
+
+1.Use two dummy nodes to build two lists: before for nodes < x and after for nodes >= x.
+2.Traverse the original list and append nodes to respective lists.
+3.Join the two lists at the end.
+
+                                       PROBLEM 2: REVERSE INTEGER
+Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
+
+Example 1:
+Input: x = 123
+Output: 321
+
+Example 2:
+Input: x = -123
+Output: -321
+
+Constraints:
+-231 <= x <= 231 - 1
+
+EXPLANATION:
+
+1.Extract the last digit using x % 10.
+2.Build the reversed number by result = result * 10 + digit.
+3.Before every multiplication, check for overflow to avoid exceeding Integer.MAX_VALUE or going below Integer.MIN_VALUE.
+
+---------------------------------------------------------Day-15-----------------------------------------------------------
+
+                                    PROBLEM 1: Add Two Numbers
+You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+Example 1:
+Input: l1 = [2,4,3], l2 = [5,6,4]
+Output: [7,0,8]
+
+Example 2:
+Input: l1 = [0], l2 = [0]
+Output: [0]
+
+Constraints:
+The number of nodes in each linked list is in the range [1, 100].
+0 <= Node.val <= 9
+It is guaranteed that the list represents a number that does not have leading zeros.
+
+EXPLANATION:
+1.Use a dummy node to simplify the construction of the result list.
+2.Traverse both linked lists (l1 and l2) simultaneously.
+3.At each step, add values from both nodes and carry from the previous step.
+4.Create a new node with the digit part (sum % 10) and move the carry forward (sum / 10).
+5.At the end, if there’s a non-zero carry, add a final node.
+
+                                       PROBLEM 2: Excel Sheet Column Title
+
+Given an integer columnNumber, return its corresponding column title as it appears in an Excel sheet.
+
+For example:
+
+A -> 1
+B -> 2
+C -> 3
+...
+Z -> 26
+AA -> 27
+AB -> 28 
+...
+ 
+Example 1:
+Input: columnNumber = 1
+Output: "A"
+
+Example 2:
+Input: columnNumber = 28
+Output: "AB"
+ 
+Constraints:
+1 <= columnNumber <= 231 - 1
+
+EXPLANATION:
+1.Use a StringBuilder to construct the result in reverse.
+2.While the column number is greater than 0:
+  i.Subtract 1 to adjust for 1-based indexing.
+  ii.Find the character for (columnNumber - 1) % 26.
+  iii.Append corresponding character ('A' + remainder).
+  iv.Divide the number by 26 to move to the next digit.
+3.Reverse the result at the end.
+
+---------------------------------------------------------Day-14-----------------------------------------------------------
+
+                                    PROBLEM 1: PARTITION LIST
+Given the head of a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x.
+You should preserve the original relative order of the nodes in each of the two partitions.
+
+Example 1:
+Input: head = [1,4,3,2,5,2], x = 3
+Output: [1,2,2,4,3,5]
+
+Example 2:
+Input: head = [2,1], x = 2
+Output: [1,2]
+ 
+Constraints:
+The number of nodes in the list is in the range [0, 200].
+-100 <= Node.val <= 100
+-200 <= x <= 200
+
+EXPLANATION:
+
+1.Use two dummy nodes to build two lists: before for nodes < x and after for nodes >= x.
+2.Traverse the original list and append nodes to respective lists.
+3.Join the two lists at the end.
+
+                                       PROBLEM 2: REVERSE INTEGER
+Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
+
+Example 1:
+Input: x = 123
+Output: 321
+
+Example 2:
+Input: x = -123
+Output: -321
+
+Constraints:
+-231 <= x <= 231 - 1
+
+EXPLANATION:
+
+1.Extract the last digit using x % 10.
+2.Build the reversed number by result = result * 10 + digit.
+3.Before every multiplication, check for overflow to avoid exceeding Integer.MAX_VALUE or going below Integer.MIN_VALUE.
+
+---------------------------------------------------------Day-16-----------------------------------------------------------
+
+                                    PROBLEM 1: Delete-node-in-a-linked-list
+
+There is a singly-linked list head and we want to delete a node node in it.You are given the node to be deleted node. You will not be given access to the first node of head.
+All the values of the linked list are unique, and it is guaranteed that the given node node is not the last node in the linked list.
+Delete the given node. Note that by deleting the node, we do not mean removing it from memory. We mean:
+The value of the given node should not exist in the linked list.
+The number of nodes in the linked list should decrease by one.
+All the values before node should be in the same order.
+All the values after node should be in the same order.
+
+Custom testing:
+For the input, you should provide the entire linked list head and the node to be given node. node should not be the last node of the list and should be an actual node in the list.
+We will build the linked list and pass the node to your function.
+The output will be the entire list after calling your function.
+ 
+Example 1:
+Input: head = [4,5,1,9], node = 5
+Output: [4,1,9]
+
+Example 2:
+Input: head = [4,5,1,9], node = 1
+Output: [4,5,9]
+
+Constraints:
+The number of the nodes in the given list is in the range [2, 1000].
+-1000 <= Node.val <= 1000
+The value of each node in the list is unique.
+The node to be deleted is in the list and is not a tail node.
+
+EXPLANATION:
+1.Copy the value of the next node into the node to be deleted.
+2.Change the next pointer of the node to point to node.next.next.
+3.The next node is now no longer referenced and will be garbage collected if there are no other references to it.
+
+                                    PROBLEM 2: Sum-Of-Square-Numbers
+
+Given a non-negative integer c, decide whether there're two integers a and b such that a2 + b2 = c.
+
+Example 1:
+Input: c = 5
+Output: true
+
+Example 2:
+Input: c = 3
+Output: false
+ 
+Constraints:
+0 <= c <= 231 - 1
+
+EXPLANATION:
+1.Let a = 0 and b = (int)Math.sqrt(c)
+2.While a <= b:Calculate sum = a*a + b*b
+a.If sum == c, return true
+b.If sum < c, increase a
+c.Else decrease b
+3.If no such pair is found, return false
+
+
+
