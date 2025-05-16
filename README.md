@@ -421,7 +421,7 @@ Actual number = start + index
 3.Find the digit inside the number.We can convert the number to a string and pick the digit:
 digit index = (n - 1) % d
 
----------------------------------------------------------Day-10----------------------------------------------------
+---------------------------------------------------------Day-10-----------------------------------------------------------
 
 
                                               PROBLEM 1: DELETE MIDDLE NODE
@@ -475,7 +475,7 @@ Each bulb is toggled once for every factor (divisor) of its position.
      * Only perfect squares have an odd number of factors,so only bulbs in perfect square positions remain on.
      * The number of bulbs that remain on is equal to the number of perfect squares less than or equal to n → that is integer part of sqrt(n).
      
----------------------------------------------------------Day-11----------------------------------------------------
+---------------------------------------------------------Day-11-----------------------------------------------------------
 
                                    PROBLEM 1:remove-nth-node-from-end-of-list
 
@@ -529,7 +529,7 @@ So, for every multiple of 5, we get one factor of 5. For every multiple of 25, w
 We keep dividing n by 5, adding the quotient to count.
 This counts how many factors of 5 are in n!.
 
----------------------------------------------------------Day-12----------------------------------------------------
+---------------------------------------------------------Day-12-----------------------------------------------------------
 
                                    PROBLEM 1:INSERT GCD IN LINKED LIST
 
@@ -580,7 +580,7 @@ Count how many odd numbers are from 1 to low - 1: this is (low) / 2.
 The difference gives the count of odd numbers in the inclusive range [low, high].
 This avoids any loops and works in constant time.
 
----------------------------------------------------------Day-13----------------------------------------------------
+---------------------------------------------------------Day-13-----------------------------------------------------------
 
                                PROBLEM 1:remove-duplicates-from-sorted-list-ii
 
@@ -721,9 +721,7 @@ EXPLANATION:
                                        PROBLEM 2: Excel Sheet Column Title
 
 Given an integer columnNumber, return its corresponding column title as it appears in an Excel sheet.
-
 For example:
-
 A -> 1
 B -> 2
 C -> 3
@@ -753,160 +751,7 @@ EXPLANATION:
   iv.Divide the number by 26 to move to the next digit.
 3.Reverse the result at the end.
 
----------------------------------------------------------Day-14-----------------------------------------------------------
-
-                                    PROBLEM 1: PARTITION LIST
-Given the head of a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x.
-You should preserve the original relative order of the nodes in each of the two partitions.
-
-Example 1:
-Input: head = [1,4,3,2,5,2], x = 3
-Output: [1,2,2,4,3,5]
-
-Example 2:
-Input: head = [2,1], x = 2
-Output: [1,2]
- 
-Constraints:
-The number of nodes in the list is in the range [0, 200].
--100 <= Node.val <= 100
--200 <= x <= 200
-
-EXPLANATION:
-
-1.Use two dummy nodes to build two lists: before for nodes < x and after for nodes >= x.
-2.Traverse the original list and append nodes to respective lists.
-3.Join the two lists at the end.
-
-                                       PROBLEM 2: REVERSE INTEGER
-Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
-Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
-
-Example 1:
-Input: x = 123
-Output: 321
-
-Example 2:
-Input: x = -123
-Output: -321
-
-Constraints:
--231 <= x <= 231 - 1
-
-EXPLANATION:
-
-1.Extract the last digit using x % 10.
-2.Build the reversed number by result = result * 10 + digit.
-3.Before every multiplication, check for overflow to avoid exceeding Integer.MAX_VALUE or going below Integer.MIN_VALUE.
-
----------------------------------------------------------Day-15-----------------------------------------------------------
-
-                                    PROBLEM 1: Add Two Numbers
-You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
-You may assume the two numbers do not contain any leading zero, except the number 0 itself.
-
-Example 1:
-Input: l1 = [2,4,3], l2 = [5,6,4]
-Output: [7,0,8]
-
-Example 2:
-Input: l1 = [0], l2 = [0]
-Output: [0]
-
-Constraints:
-The number of nodes in each linked list is in the range [1, 100].
-0 <= Node.val <= 9
-It is guaranteed that the list represents a number that does not have leading zeros.
-
-EXPLANATION:
-1.Use a dummy node to simplify the construction of the result list.
-2.Traverse both linked lists (l1 and l2) simultaneously.
-3.At each step, add values from both nodes and carry from the previous step.
-4.Create a new node with the digit part (sum % 10) and move the carry forward (sum / 10).
-5.At the end, if there’s a non-zero carry, add a final node.
-
-                                       PROBLEM 2: Excel Sheet Column Title
-
-Given an integer columnNumber, return its corresponding column title as it appears in an Excel sheet.
-
-For example:
-
-A -> 1
-B -> 2
-C -> 3
-...
-Z -> 26
-AA -> 27
-AB -> 28 
-...
- 
-Example 1:
-Input: columnNumber = 1
-Output: "A"
-
-Example 2:
-Input: columnNumber = 28
-Output: "AB"
- 
-Constraints:
-1 <= columnNumber <= 231 - 1
-
-EXPLANATION:
-1.Use a StringBuilder to construct the result in reverse.
-2.While the column number is greater than 0:
-  i.Subtract 1 to adjust for 1-based indexing.
-  ii.Find the character for (columnNumber - 1) % 26.
-  iii.Append corresponding character ('A' + remainder).
-  iv.Divide the number by 26 to move to the next digit.
-3.Reverse the result at the end.
-
----------------------------------------------------------Day-14-----------------------------------------------------------
-
-                                    PROBLEM 1: PARTITION LIST
-Given the head of a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x.
-You should preserve the original relative order of the nodes in each of the two partitions.
-
-Example 1:
-Input: head = [1,4,3,2,5,2], x = 3
-Output: [1,2,2,4,3,5]
-
-Example 2:
-Input: head = [2,1], x = 2
-Output: [1,2]
- 
-Constraints:
-The number of nodes in the list is in the range [0, 200].
--100 <= Node.val <= 100
--200 <= x <= 200
-
-EXPLANATION:
-
-1.Use two dummy nodes to build two lists: before for nodes < x and after for nodes >= x.
-2.Traverse the original list and append nodes to respective lists.
-3.Join the two lists at the end.
-
-                                       PROBLEM 2: REVERSE INTEGER
-Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
-Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
-
-Example 1:
-Input: x = 123
-Output: 321
-
-Example 2:
-Input: x = -123
-Output: -321
-
-Constraints:
--231 <= x <= 231 - 1
-
-EXPLANATION:
-
-1.Extract the last digit using x % 10.
-2.Build the reversed number by result = result * 10 + digit.
-3.Before every multiplication, check for overflow to avoid exceeding Integer.MAX_VALUE or going below Integer.MIN_VALUE.
-
----------------------------------------------------------Day-16-----------------------------------------------------------
+----------------------------------------------------------Day-16-----------------------------------------------------------
 
                                     PROBLEM 1: Delete-node-in-a-linked-list
 
@@ -964,6 +809,62 @@ a.If sum == c, return true
 b.If sum < c, increase a
 c.Else decrease b
 3.If no such pair is found, return false
+
+---------------------------------------------------------Day-17-----------------------------------------------------------
+
+                                                  PROBLEM 1: Min-Stack
+
+Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+Implement the MinStack class:
+•MinStack() initializes the stack object.
+•void push(int val) pushes the element val onto the stack.
+•void pop() removes the element on the top of the stack.
+•int top() gets the top element of the stack.
+•int getMin() retrieves the minimum element in the stack.
+You must implement a solution with O(1) time complexity for each function.
+
+Example 1:
+Input
+["MinStack","push","push","push","getMin","pop","top","getMin"]
+[[],[-2],[0],[-3],[],[],[],[]]
+Output
+[null,null,null,null,-3,null,0,-2]
+
+Constraints:
+-231 <= val <= 231 - 1
+Methods pop, top and getMin operations will always be called on non-empty stacks.
+At most 3 * 104 calls will be made to push, pop, top, and getMin
+
+EXPLANATION:
+1.Copy the value of the next node into the node to be deleted.
+2.Change the next pointer of the node to point to node.next.next.
+3.The next node is now no longer referenced and will be garbage collected if there are no other references to it.
+
+                                    PROBLEM 2: Two-Sum
+
+Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.You may assume that each input would have exactly one solution, and you may not use the same element twice.You can return the answer in any order.
+
+Example 1:
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+
+Example 2:
+Input: nums = [3,2,4], target = 6
+Output: [1,2]
+
+Constraints:
+2 <= nums.length <= 104
+-109 <= nums[i] <= 109
+-109 <= target <= 109
+Only one valid answer exists.
+
+EXPLANATION:
+•We use a HashMap to store numbers and their indices as we iterate.
+•For each number nums[i], we calculate complement = target - nums[i].
+•If the complement exists in the map, we've found the pair → return their indices.
+•Otherwise, store nums[i] in the map.
+
+
 
 
 
