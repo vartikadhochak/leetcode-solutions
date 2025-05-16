@@ -808,22 +808,33 @@ EXPLANATION:
 Given a non-negative integer c, decide whether there're two integers a and b such that a2 + b2 = c.
 
 Example 1:
+
 Input: c = 5
+
 Output: true
 
 Example 2:
+
 Input: c = 3
+
 Output: false
 
 Constraints:
+
 0 <= c <= 231 - 1
 
 EXPLANATION:
+
 1.Let a = 0 and b = (int)Math.sqrt(c)
+
 2.While a <= b:Calculate sum = a*a + b*b
+
 a.If sum == c, return true
+
 b.If sum < c, increase a
+
 c.Else decrease b
+
 3.If no such pair is found, return false
 
 ---------------------------------------------------------Day-17-----------------------------------------------------------
@@ -831,51 +842,79 @@ c.Else decrease b
                                                   PROBLEM 1: Min-Stack
 
 Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+
 Implement the MinStack class:
+
 •MinStack() initializes the stack object.
+
 •void push(int val) pushes the element val onto the stack.
+
 •void pop() removes the element on the top of the stack.
+
 •int top() gets the top element of the stack.
+
 •int getMin() retrieves the minimum element in the stack.
+
 You must implement a solution with O(1) time complexity for each function.
 
+
 Example 1:
-Input
+
+Input:
+
 ["MinStack","push","push","push","getMin","pop","top","getMin"]
 [[],[-2],[0],[-3],[],[],[],[]]
-Output
+
+Output:
+
 [null,null,null,null,-3,null,0,-2]
 
 Constraints:
+
 -231 <= val <= 231 - 1
+
 Methods pop, top and getMin operations will always be called on non-empty stacks.
+
 At most 3 \* 104 calls will be made to push, pop, top, and getMin
 
 EXPLANATION:
+
 1.Copy the value of the next node into the node to be deleted.
+
 2.Change the next pointer of the node to point to node.next.next.
+
 3.The next node is now no longer referenced and will be garbage collected if there are no other references to it.
 
-                                    PROBLEM 2: Two-Sum
+                                               PROBLEM 2: Two-Sum
 
 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.You may assume that each input would have exactly one solution, and you may not use the same element twice.You can return the answer in any order.
 
 Example 1:
+
 Input: nums = [2,7,11,15], target = 9
+
 Output: [0,1]
 
 Example 2:
+
 Input: nums = [3,2,4], target = 6
+
 Output: [1,2]
 
 Constraints:
-2 <= nums.length <= 104
--109 <= nums[i] <= 109
--109 <= target <= 109
-Only one valid answer exists.
+
+•2 <= nums.length <= 104
+
+•-109 <= nums[i] <= 109
+
+•-109 <= target <= 109
 
 EXPLANATION:
+
 •We use a HashMap to store numbers and their indices as we iterate.
+
 •For each number nums[i], we calculate complement = target - nums[i].
+
 •If the complement exists in the map, we've found the pair → return their indices.
+
 •Otherwise, store nums[i] in the map.
