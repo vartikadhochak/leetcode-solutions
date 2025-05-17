@@ -803,38 +803,27 @@ EXPLANATION:
 2.Change the next pointer of the node to point to node.next.next.
 3.The next node is now no longer referenced and will be garbage collected if there are no other references to it.
 
-                                    PROBLEM 2: Sum-Of-Square-Numbers
+                                      PROBLEM 2: Sum-Of-Square-Numbers
 
 Given a non-negative integer c, decide whether there're two integers a and b such that a2 + b2 = c.
 
 Example 1:
-
 Input: c = 5
-
 Output: true
 
 Example 2:
-
 Input: c = 3
-
 Output: false
 
 Constraints:
-
 0 <= c <= 231 - 1
 
 EXPLANATION:
-
 1.Let a = 0 and b = (int)Math.sqrt(c)
-
 2.While a <= b:Calculate sum = a*a + b*b
-
 a.If sum == c, return true
-
 b.If sum < c, increase a
-
 c.Else decrease b
-
 3.If no such pair is found, return false
 
 ---------------------------------------------------------Day-17-----------------------------------------------------------
@@ -842,47 +831,29 @@ c.Else decrease b
                                                   PROBLEM 1: Min-Stack
 
 Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
-
 Implement the MinStack class:
-
 •MinStack() initializes the stack object.
-
 •void push(int val) pushes the element val onto the stack.
-
 •void pop() removes the element on the top of the stack.
-
 •int top() gets the top element of the stack.
-
 •int getMin() retrieves the minimum element in the stack.
-
 You must implement a solution with O(1) time complexity for each function.
 
-
 Example 1:
-
 Input:
-
 ["MinStack","push","push","push","getMin","pop","top","getMin"]
 [[],[-2],[0],[-3],[],[],[],[]]
-
 Output:
-
 [null,null,null,null,-3,null,0,-2]
 
 Constraints:
-
 -231 <= val <= 231 - 1
-
 Methods pop, top and getMin operations will always be called on non-empty stacks.
-
 At most 3 \* 104 calls will be made to push, pop, top, and getMin
 
 EXPLANATION:
-
 1.Copy the value of the next node into the node to be deleted.
-
-2.Change the next pointer of the node to point to node.next.next.
-
+2.Change the next pointer of the node to point to node.next.next
 3.The next node is now no longer referenced and will be garbage collected if there are no other references to it.
 
                                                PROBLEM 2: Two-Sum
@@ -890,31 +861,76 @@ EXPLANATION:
 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.You may assume that each input would have exactly one solution, and you may not use the same element twice.You can return the answer in any order.
 
 Example 1:
-
 Input: nums = [2,7,11,15], target = 9
-
 Output: [0,1]
 
 Example 2:
-
-Input: nums = [3,2,4], target = 6
-
+Input: nums = [3,2,4], target = 
 Output: [1,2]
 
 Constraints:
-
 •2 <= nums.length <= 104
-
 •-109 <= nums[i] <= 109
-
 •-109 <= target <= 109
 
 EXPLANATION:
-
 •We use a HashMap to store numbers and their indices as we iterate.
-
 •For each number nums[i], we calculate complement = target - nums[i].
-
 •If the complement exists in the map, we've found the pair → return their indices.
-
 •Otherwise, store nums[i] in the map.
+
+---------------------------------------------------------Day-18-----------------------------------------------------------
+
+                                                  PROBLEM 1: Min-Stack
+
+Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (push, peek, pop, and empty).
+
+Implement the MyQueue class:
+void push(int x) Pushes element x to the back of the queue.
+int pop() Removes the element from the front of the queue and returns it.
+int peek() Returns the element at the front of the queue.
+boolean empty() Returns true if the queue is empty, false otherwise.
+
+Notes:
+You must use only standard operations of a stack, which means only push to top, peek/pop from top, size, and is empty operations are valid.
+Depending on your language, the stack may not be supported natively. You may simulate a stack using a list or deque (double-ended queue) as long as you use only a stack's standard operations.
+
+Example 1:
+Input
+["MyQueue", "push", "push", "peek", "pop", "empty"]
+[[], [1], [2], [], [], []]
+Output
+[null, null, null, 1, 1, false]
+
+Constraints:
+1 <= x <= 9
+At most 100 calls will be made to push, pop, peek, and empty.
+All the calls to pop and peek are valid.
+
+EXPLANATION:
+
+•Push: Always push into inStack.
+•Pop/Peek: If outStack is empty, transfer all elements from inStack to outStack.
+•Empty: Return true if both stacks are empty.
+
+
+                                               PROBLEM 2: Contains-Duplicate
+
+Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+
+Example 1:
+Input: nums = [1,2,3,1]
+Output: true
+
+Example 2:
+Input: nums = [1,2,3,4]
+Output: false
+
+Constraints:
+1 <= nums.length <= 105
+-109 <= nums[i] <= 109
+
+EXPLANATION:
+Use a HashSet to store elements as we iterate through the array.
+•If an element is already in the set, return true (duplicate found).
+•If we finish the loop without finding a duplicate, return false.
