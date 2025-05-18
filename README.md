@@ -881,7 +881,7 @@ EXPLANATION:
 
 ---------------------------------------------------------Day-18-----------------------------------------------------------
 
-                                                  PROBLEM 1: Min-Stack
+                                 PROBLEM 1: Implement-queue-using-stack
 
 Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (push, peek, pop, and empty).
 
@@ -934,3 +934,56 @@ EXPLANATION:
 Use a HashSet to store elements as we iterate through the array.
 •If an element is already in the set, return true (duplicate found).
 •If we finish the loop without finding a duplicate, return false.
+
+---------------------------------------------------------Day-19-----------------------------------------------------------
+
+                                            PROBLEM 1: Valid-Parentheses
+
+Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+An input string is valid if:
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+Every close bracket has a corresponding open bracket of the same type.
+ 
+Example 1:
+Input: s = "()"
+Output: true
+
+Example 2:
+Input: s = "()[]{}"
+Output: true
+
+Constraints:
+1 <= s.length <= 104
+s consists of parentheses only '()[]{}'.
+
+EXPLANATION:
+he isValid method uses a stack to track opening brackets.
+For every closing bracket, it checks if it matches the last opening bracket.
+If all brackets match correctly and the stack is empty at the end, the string is valid.
+The main method tests some example inputs and prints whether each string is valid or not.
+
+
+                              PROBLEM 2: Best-Time-To-Buy-And-Sell-Stocks
+
+You are given an array prices where prices[i] is the price of a given stock on the ith day.
+You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+
+Example 1:
+Input: prices = [7,1,5,3,6,4]
+Output: 5
+
+Example 2:
+Input: prices = [7,6,4,3,1]
+Output: 0
+
+Constraints:
+1 <= prices.length <= 105
+0 <= prices[i] <= 104
+
+EXPLANATION:
+The maxProfit method finds the maximum profit by keeping track of the minimum buying price seen so far.
+It updates the max profit by comparing current profit possibilities (price - minPrice).
+The main method tests the solution with example inputs and prints the maximum profit.
