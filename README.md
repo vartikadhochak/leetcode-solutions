@@ -987,3 +987,31 @@ EXPLANATION:
 The maxProfit method finds the maximum profit by keeping track of the minimum buying price seen so far.
 It updates the max profit by comparing current profit possibilities (price - minPrice).
 The main method tests the solution with example inputs and prints the maximum profit.
+
+
+---------------------------------------------------------Day-20-----------------------------------------------------------
+
+                                PROBLEM 1: Find-Greatest-Common-Divisor-Of-Array 
+
+Given an integer array nums, return the greatest common divisor of the smallest number and largest number in nums.
+The greatest common divisor of two numbers is the largest positive integer that evenly divides both numbers.
+
+
+Example 1:
+Input: nums = [2,5,6,9,10]
+Output: 2
+
+Example 2:
+Input: nums = [7,5,6,8,3]
+Output: 1
+
+Constraints:
+2 <= nums.length <= 1000
+1 <= nums[i] <= 1000
+
+Explanation:
+Loop through the array to find the minimum and maximum elements.
+Use a helper function (Euclidean algorithm) to compute the GCD of those two numbers.
+Return the result.
+
+                          
