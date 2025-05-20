@@ -1049,3 +1049,61 @@ a. Pop the top two numbers from the stack
 b.Perform the operation.
 c.Push the result back onto the stack.
 3. After the loop, the result is the only number left in the stack. Return it.
+
+---------------------------------------------------------Day-21-----------------------------------------------------------
+
+                                PROBLEM 1:Pascals-Triangle-ii
+
+Given an integer rowIndex, return the rowIndexth (0-indexed) row of the Pascal's triangle.
+In Pascal's triangle, each number is the sum of the two numbers directly above it as shown:
+
+Example 1:
+Input: rowIndex = 3
+Output: [1,3,3,1]
+
+Example 2:
+Input: rowIndex = 0
+Output: [1]
+
+Constraints:
+0 <= rowIndex <= 33
+
+EXPLANATION:
+To get the rowIndex-th row:
+Start with [1].
+Use the formula: res[i] = res[i] * (rowIndex - i + 1) / i to compute the next elements iteratively.
+
+
+                                    PROBLEM 2:Valid-Parenthesis-String
+
+Given a string s containing only three types of characters: '(', ')' and '*', return true if s is valid.
+The following rules define a valid string:
+Any left parenthesis '(' must have a corresponding right parenthesis ')'.
+Any right parenthesis ')' must have a corresponding left parenthesis '('.
+Left parenthesis '(' must go before the corresponding right parenthesis ')'.
+'*' could be treated as a single right parenthesis ')' or a single left parenthesis '(' or an empty string "".
+ 
+Example 1:
+Input: s = "()"
+Output: true
+
+Example 2:
+Input: s = "(*)"
+Output: true
+
+Constraints:
+1 <= s.length <= 100
+s[i] is '(', ')' or '*'.
+
+EXPLANATION:
+Use two counters:
+low = min open parentheses possible.
+high = max open parentheses possible.
+
+For each character:
+( → both low and high increase.
+) → both low and high decrease.
+* → low--, high++ (i.e., can act as ), (, or nothing).
+If high < 0 at any point → invalid.
+If low < 0 → reset to 0 (because * can be nothing).
+
