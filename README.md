@@ -1107,3 +1107,76 @@ For each character:
 If high < 0 at any point → invalid.
 If low < 0 → reset to 0 (because * can be nothing).
 
+---------------------------------------------------------Day-22-----------------------------------------------------------
+
+                           PROBLEM 1: Minimum-Remove-to-make-Valid-Parentheses
+
+Given a string s of '(' , ')' and lowercase English characters.
+Your task is to remove the minimum number of parentheses ( '(' or ')', in any positions ) so that the resulting parentheses string is valid and return any valid string.
+Formally, a parentheses string is valid if and only if:
+It is the empty string, contains only lowercase characters, or
+It can be written as AB (A concatenated with B), where A and B are valid strings, or
+It can be written as (A), where A is a valid string.
+ 
+Example 1:
+Input: s = "lee(t(c)o)de)"
+Output: "lee(t(c)o)de"
+
+Example 2:
+Input: s = "a)b(c)d"
+Output: "ab(c)d"
+
+Constraints:
+1 <= s.length <= 105
+s[i] is either '(' , ')', or lowercase English letter.
+
+Explanation:
+
+First Pass (Left to Right):
+Track open parentheses count.
+Keep appending characters to sb:
+If (, increment open and add it.
+If ), only add if open > 0, and decrement open.
+Otherwise (letters), always add.
+
+🔹 Second Pass (Right to Left):
+Iterate backwards through the valid partial string sb.
+If extra '(' are left (open > 0), skip them.
+Reverse the result to restore original order.
+
+🔹 Return the Result:
+The reversed and cleaned string is returned.
+
+
+                                      PROBLEM 2: Majority-Element
+
+Given an array nums of size n, return the majority element.
+The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
+
+Example 1:
+Input: nums = [3,2,3]
+Output: 3
+
+Example 2:
+Input: nums = [2,2,1,1,1,2,2]
+Output: 2
+ 
+Constraints:
+n == nums.length
+1 <= n <= 5 * 104
+-109 <= nums[i] <= 109
+
+Explanation:
+
+Initialization:
+count = 0: keeps track of the balance.
+candidate = 0: stores the current potential majority element.
+
+Loop Through Array:
+If count == 0, update the candidate to the current number.
+If the current number is equal to candidate, increment the count.
+Otherwise, decrement the count.
+
+Return:
+The element stored in candidate at the end is the majority element.
+ 
