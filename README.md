@@ -909,9 +909,9 @@ All the calls to pop and peek are valid.
 
 EXPLANATION:
 
-•Push: Always push into inStack.
-•Pop/Peek: If outStack is empty, transfer all elements from inStack to outStack.
-•Empty: Return true if both stacks are empty.
+🔹 Push: Always push into inStack.
+🔹 Pop/Peek: If outStack is empty, transfer all elements from inStack to outStack.
+🔹 Empty: Return true if both stacks are empty.
 
 
                                                PROBLEM 2: Contains-Duplicate
@@ -931,9 +931,9 @@ Constraints:
 -109 <= nums[i] <= 109
 
 EXPLANATION:
-Use a HashSet to store elements as we iterate through the array.
-•If an element is already in the set, return true (duplicate found).
-•If we finish the loop without finding a duplicate, return false.
+🔹 Use a HashSet to store elements as we iterate through the array.
+🔹 If an element is already in the set, return true (duplicate found).
+🔹 If we finish the loop without finding a duplicate, return false.
 
 ---------------------------------------------------------Day-19-----------------------------------------------------------
 
@@ -959,10 +959,10 @@ Constraints:
 s consists of parentheses only '()[]{}'.
 
 EXPLANATION:
-he isValid method uses a stack to track opening brackets.
-For every closing bracket, it checks if it matches the last opening bracket.
-If all brackets match correctly and the stack is empty at the end, the string is valid.
-The main method tests some example inputs and prints whether each string is valid or not.
+🔹 The isValid method uses a stack to track opening brackets.
+🔹 For every closing bracket, it checks if it matches the last opening bracket.
+🔹 If all brackets match correctly and the stack is empty at the end, the string is valid.
+🔹 The main method tests some example inputs and prints whether each string is valid or not.
 
 
                               PROBLEM 2: Best-Time-To-Buy-And-Sell-Stocks
@@ -984,9 +984,9 @@ Constraints:
 0 <= prices[i] <= 104
 
 EXPLANATION:
-The maxProfit method finds the maximum profit by keeping track of the minimum buying price seen so far.
-It updates the max profit by comparing current profit possibilities (price - minPrice).
-The main method tests the solution with example inputs and prints the maximum profit.
+🔹 The maxProfit method finds the maximum profit by keeping track of the minimum buying price seen so far.
+🔹 It updates the max profit by comparing current profit possibilities (price - minPrice).
+🔹 The main method tests the solution with example inputs and prints the maximum profit.
 
 
 ---------------------------------------------------------Day-20-----------------------------------------------------------
@@ -995,7 +995,6 @@ The main method tests the solution with example inputs and prints the maximum pr
 
 Given an integer array nums, return the greatest common divisor of the smallest number and largest number in nums.
 The greatest common divisor of two numbers is the largest positive integer that evenly divides both numbers.
-
 
 Example 1:
 Input: nums = [2,5,6,9,10]
@@ -1010,9 +1009,9 @@ Constraints:
 1 <= nums[i] <= 1000
 
 Explanation:
-Loop through the array to find the minimum and maximum elements.
-Use a helper function (Euclidean algorithm) to compute the GCD of those two numbers.
-Return the result.
+🔹 Loop through the array to find the minimum and maximum elements.
+🔹 Use a helper function (Euclidean algorithm) to compute the GCD of those two numbers.
+🔹 Return the result.
 
                         PROBLEM 2: Evaluate-reverse-polish-notation
 
@@ -1039,8 +1038,8 @@ Constraints:
 tokens[i] is either an operator: "+", "-", "*", or "/", or an integer in the range [-200, 200].         
 
 Explanation:
-1. Initialize an empty stack to store integers.
-2. Loop through each token in the input array:
+🔹 Initialize an empty stack to store integers.
+🔹 Loop through each token in the input array:
 •If it's a number, convert it to an integer and push it onto the stack.
 •If it's an operator (+, -, *, /):
 a. Pop the top two numbers from the stack
@@ -1048,7 +1047,7 @@ a. Pop the top two numbers from the stack
 •The first popped is the right operand.
 b.Perform the operation.
 c.Push the result back onto the stack.
-3. After the loop, the result is the only number left in the stack. Return it.
+🔹 After the loop, the result is the only number left in the stack. Return it.
 
 ---------------------------------------------------------Day-21-----------------------------------------------------------
 
@@ -1069,9 +1068,9 @@ Constraints:
 0 <= rowIndex <= 33
 
 EXPLANATION:
-To get the rowIndex-th row:
+🔹 To get the rowIndex-th row:
 Start with [1].
-Use the formula: res[i] = res[i] * (rowIndex - i + 1) / i to compute the next elements iteratively.
+🔹 Use the formula: res[i] = res[i] * (rowIndex - i + 1) / i to compute the next elements iteratively.
 
 
                                     PROBLEM 2:Valid-Parenthesis-String
@@ -1096,11 +1095,11 @@ Constraints:
 s[i] is '(', ')' or '*'.
 
 EXPLANATION:
-Use two counters:
+🔹 Use two counters:
 low = min open parentheses possible.
 high = max open parentheses possible.
 
-For each character:
+🔹 For each character:
 ( → both low and high increase.
 ) → both low and high decrease.
 * → low--, high++ (i.e., can act as ), (, or nothing).
@@ -1127,15 +1126,15 @@ Input: s = "a)b(c)d"
 Output: "ab(c)d"
 
 Constraints:
-1 <= s.length <= 105
+1 <= s.length <= 10^5
 s[i] is either '(' , ')', or lowercase English letter.
 
 Explanation:
 
-First Pass (Left to Right):
+🔹 First Pass (Left to Right):
 Track open parentheses count.
 Keep appending characters to sb:
-If (, increment open and add it.
+If (, increment open and add it. 
 If ), only add if open > 0, and decrement open.
 Otherwise (letters), always add.
 
@@ -1164,19 +1163,72 @@ Output: 2
 Constraints:
 n == nums.length
 1 <= n <= 5 * 104
--109 <= nums[i] <= 109
+-109 <= nums[i] <= 10^9
 
 Explanation:
 
-Initialization:
+🔹 Initialization:
 count = 0: keeps track of the balance.
 candidate = 0: stores the current potential majority element.
 
-Loop Through Array:
+🔹 Loop Through Array:
 If count == 0, update the candidate to the current number.
 If the current number is equal to candidate, increment the count.
 Otherwise, decrement the count.
 
-Return:
+🔹 Return:
 The element stored in candidate at the end is the majority element.
  
+
+---------------------------------------------------------Day-23-----------------------------------------------------------
+
+                                           PROBLEM 1: Longest-valid-parentheses
+
+Given a string containing just the characters '(' and ')', return the length of the longest valid (well-formed) parentheses substring.
+
+Example 1:
+Input: s = "(()"
+Output: 2
+
+Example 2:
+Input: s = ")()())"
+Output: 4
+
+Constraints:
+0 <= s.length <= 3 * 104
+s[i] is '(', or ')'.
+
+Explanation:
+
+🔹 We use a stack to store indices of unmatched '('.
+🔹 Start by pushing -1 as a base index.
+🔹 When encountering '(', push its index.
+🔹 When encountering ')', pop the top:
+If stack is empty after popping, push current index as base.
+If not empty, update maxLength using current index and top of stack.
+
+
+                                                PROBLEM 2: Search-insert-position
+
+Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+You must write an algorithm with O(log n) runtime complexity.
+
+Example 1:
+Input: nums = [1,3,5,6], target = 5
+Output: 2
+
+Example 2:
+Input: nums = [1,3,5,6], target = 2
+Output: 1
+
+Constraints:
+1 <= nums.length <= 104
+-104 <= nums[i] <= 104
+nums contains distinct values sorted in ascending order.
+-104 <= target <= 104
+
+Explanation:
+🔹 Initialize left = 0, right = nums.length
+🔹 Use binary search to find the first position where nums[mid] >= target
+🔹 This works because the array is sorted
+
