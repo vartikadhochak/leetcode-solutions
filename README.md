@@ -1232,3 +1232,54 @@ Explanation:
 🔹 Use binary search to find the first position where nums[mid] >= target
 🔹 This works because the array is sorted
 
+---------------------------------------------------------Day-24-----------------------------------------------------------
+
+                                           PROBLEM 1: Move-zeroes
+
+Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+Note that you must do this in-place without making a copy of the array.
+
+Example 1:
+Input: nums = [0,1,0,3,12]
+Output: [1,3,12,0,0]
+
+Example 2:
+Input: nums = [0]
+Output: [0]
+
+Constraints:
+1 <= nums.length <= 104
+-231 <= nums[i] <= 231 - 1  
+
+Explanation:
+🔹 Use two pointers.
+🔹 Move non-zero elements to the front.
+🔹 Fill the rest of the array with zeroes.
+
+                                           PROBLEM 2: Basic Calculator
+
+Given a string s representing a valid expression, implement a basic calculator to evaluate it, and return the result of the evaluation.
+Note: You are not allowed to use any built-in function which evaluates strings as mathematical expressions, such as eval().
+
+Example 1:
+Input: s = "1 + 1"
+Output: 2
+
+Example 2:
+Input: s = " 2-1 + 2 "
+Output: 3
+
+Constraints:
+1 <= s.length <= 3 * 105
+s consists of digits, '+', '-', '(', ')', and ' '.
+s represents a valid expression.
+'+' is not used as a unary operation (i.e., "+1" and "+(2 + 3)" is invalid).
+'-' could be used as a unary operation (i.e., "-1" and "-(2 + 3)" is valid).
+There will be no two consecutive operators in the input.
+Every number and running calculation will fit in a signed 32-bit integer.                                            
+
+Explanation:
+🔹 Use a stack to keep track of intermediate results and signs.
+🔹 Handle + and - by keeping a sign variable.
+🔹 Push current result and sign onto the stack when encountering (.
+🔹 Pop and evaluate on encountering ).
