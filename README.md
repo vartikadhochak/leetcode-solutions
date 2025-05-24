@@ -1283,3 +1283,72 @@ Explanation:
 🔹 Handle + and - by keeping a sign variable.
 🔹 Push current result and sign onto the stack when encountering (.
 🔹 Pop and evaluate on encountering ).
+
+---------------------------------------------------------Day-25-----------------------------------------------------------
+
+                                       PROBLEM 1: Implement-stack-using-queues
+
+Implement a last-in-first-out (LIFO) stack using only two queues. The implemented stack should support all the functions of a normal stack (push, top, pop, and empty).
+
+Implement the MyStack class:
+void push(int x) Pushes element x to the top of the stack.
+int pop() Removes the element on the top of the stack and returns it.
+int top() Returns the element on the top of the stack.
+boolean empty() Returns true if the stack is empty, false otherwise.
+
+Notes:
+You must use only standard operations of a queue, which means that only push to back, peek/pop from front, size and is empty operations are valid.
+Depending on your language, the queue may not be supported natively. You may simulate a queue using a list or deque (double-ended queue) as long as you use only a queue's standard operations.
+ 
+Example 1:
+Input
+["MyStack", "push", "push", "top", "pop", "empty"]
+[[], [1], [2], [], [], []]
+Output
+[null, null, null, 2, 2, false]
+
+Constraints:
+1 <= x <= 9
+At most 100 calls will be made to push, pop, top, and empty.
+All the calls to pop and top are valid.   
+
+Explanation:
+•push(x): Enqueue to q2, then move all elements from q1 to q2. Swap q1 and q2.
+•pop(): Dequeue from q1 (since top is always at front).
+•top(): Peek the front of q1.
+•empty(): Return q1.isEmpty().
+
+Time Complexity:
+•push: O(n)
+•pop, top, empty: O(1)
+
+                                    PROBLEM 2: Rotate-array
+                                    
+Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
+
+Example 1:
+Input: nums = [1,2,3,4,5,6,7], k = 3
+Output: [5,6,7,1,2,3,4]
+
+Example 2:
+Input: nums = [-1,-100,3,99], k = 2
+Output: [3,99,-1,-100]
+
+Constraints:
+1 <= nums.length <= 105
+-231 <= nums[i] <= 231 - 1
+0 <= k <= 10^5
+ 
+Explanation:
+To rotate the array to the right by k steps:
+•Reverse the whole array.
+•Reverse the first k elements.
+•Reverse the rest.
+•Use k %= nums.length to handle k larger than array size.
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(1)
+
