@@ -1352,3 +1352,58 @@ O(n)
 Space Complexity:
 O(1)
 
+
+---------------------------------------------------------Day-26-----------------------------------------------------------
+
+                                       PROBLEM 1: Find-first-and-last-position-of-element-in-sorted-array
+
+Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
+If target is not found in the array, return [-1, -1].
+You must write an algorithm with O(log n) runtime complexity.
+
+Example 1:
+Input: nums = [5,7,7,8,8,10], target = 8
+Output: [3,4]
+
+Example 2:
+Input: nums = [5,7,7,8,8,10], target = 6
+Output: [-1,-1]
+
+Constraints:
+0 <= nums.length <= 105
+-109 <= nums[i] <= 109
+nums is a non-decreasing array.
+-109 <= target <= 109
+
+Explanation:
+Binary Search :
+Use binary search twice:
+First to find the first occurrence of the target.
+Second to find the index just after the last occurrence.
+Subtract 1 from the second result to get the actual last index.
+Verify that the target exists in the resulting range.
+
+
+                            PROBLEM 2: Binary-tree-inorder-traversal
+
+Given the root of a binary tree, return the inorder traversal of its nodes' values.
+
+Example 1:
+Input: root = [1,null,2,3]
+Output: [1,3,2]
+
+Example 2:
+Input: root = [1,2,3,4,5,null,8,null,null,6,7,9]
+Output: [4,2,6,5,7,1,3,9,8]
+
+Constraints:
+The number of nodes in the tree is in the range [0, 100].
+-100 <= Node.val <= 100
+ 
+Explanation:
+Recursive Inorder Traversal:
+Traverse the left subtree.
+Visit the current node (add its value to result).
+Traverse the right subtree.
+This mimics the left-root-right order used in inorder traversal.
+
