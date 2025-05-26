@@ -1407,3 +1407,60 @@ Visit the current node (add its value to result).
 Traverse the right subtree.
 This mimics the left-root-right order used in inorder traversal.
 
+---------------------------------------------------------Day-27-----------------------------------------------------------
+
+                                       PROBLEM 1: Path-sum
+
+Given the root of a binary tree and an integer targetSum, return true if the tree has a root-to-leaf path such that adding up all the values along the path equals targetSum.
+
+A leaf is a node with no children.
+
+Example 1:
+Input: root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22
+Output: true
+
+Example 2:
+Input: root = [1,2,3], targetSum = 5
+Output: false
+
+Constraints:
+The number of nodes in the tree is in the range [0, 5000].
+-1000 <= Node.val <= 1000
+-1000 <= targetSum <= 1000  
+
+Explanation:
+
+At each node:
+• Subtract the node’s value from targetSum.
+• If it’s a leaf node and the remaining target is zero, return true.
+• Recursively check the left and right subtrees with the updated sum.
+
+If we never find such a path, return false.
+
+                                    PROBLEM 2: Maximum-subarray
+
+Given an integer array nums, find the subarray with the largest sum, and return its sum.
+
+Example 1:
+Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+Output: 6
+
+Example 2:
+Input: nums = [1]
+Output: 1
+
+Constraints:
+1 <= nums.length <= 105
+-104 <= nums[i] <= 10^4        
+
+Explanation:
+
+Initialize:
+currentSum = 0
+maxSum = Integer.MIN_VALUE
+
+Traverse the array:
+• At each index, set currentSum = max(num, currentSum + num)
+• Update maxSum = max(maxSum, currentSum)
+
+Return maxSum
