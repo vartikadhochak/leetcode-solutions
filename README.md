@@ -1464,3 +1464,55 @@ Traverse the array:
 • Update maxSum = max(maxSum, currentSum)
 
 Return maxSum
+
+---------------------------------------------------------Day-28-----------------------------------------------------------
+
+                              PROBLEM 1: Number-of-subarrays-with-lcm-equal-to-k
+
+Given an integer array nums and an integer k, return the number of subarrays of nums where the least common multiple of the subarray's elements is k.
+A subarray is a contiguous non-empty sequence of elements within an array.
+The least common multiple of an array is the smallest positive integer that is divisible by all the array elements.
+
+Example 1:
+Input: nums = [3,6,2,7,1], k = 6
+Output: 4
+
+Example 2:
+Input: nums = [3], k = 2
+Output: 0
+
+Constraints:
+1 <= nums.length <= 1000
+1 <= nums[i], k <= 1000
+
+Explanation:
+
+🔹 Try all subarrays nums[i..j]
+🔹 Compute LCM from i to j
+🔹 If it exceeds k, break early
+🔹 If it's equal to k, increment count
+
+                              PROBLEM 2: Minimum-depth-of-binary-tree
+
+Given a binary tree, find its minimum depth.
+The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
+Note: A leaf is a node with no children.
+
+Example 1:
+Input: root = [3,9,20,null,null,15,7]
+Output: 2
+
+Example 2:
+Input: root = [2,null,3,null,4,null,5,null,6]
+Output: 5
+ 
+Constraints:
+The number of nodes in the tree is in the range [0, 105].
+-1000 <= Node.val <= 1000
+
+Explanation:
+
+🔹 Use BFS (Breadth-First Search) to find the first leaf node because it's the shortest path by level order.
+🔹 If root is null, return 0.
+🔹 Do a level-order traversal using a queue.
+🔹 As soon as a leaf node is found, return its depth.
