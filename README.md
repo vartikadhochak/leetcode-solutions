@@ -1516,3 +1516,59 @@ Explanation:
 🔹 If root is null, return 0.
 🔹 Do a level-order traversal using a queue.
 🔹 As soon as a leaf node is found, return its depth.
+
+---------------------------------------------------------Day-29-----------------------------------------------------------
+
+                              PROBLEM 1: kth-largest-element-in-an-array
+
+Given an integer array nums and an integer k, return the kth largest element in the array.
+Note that it is the kth largest element in the sorted order, not the kth distinct element.
+
+Example 1:
+Input: nums = [3,2,1,5,6,4], k = 2
+Output: 5
+
+Example 2:
+Input: nums = [3,2,3,1,2,4,5,5,6], k = 4
+Output: 4
+ 
+Constraints:
+1 <= k <= nums.length <= 105
+-104 <= nums[i] <= 104   
+                           
+Explanation:
+
+QuickSelect – an optimized selection algorithm similar to QuickSort.
+
+🔹 Choose a pivot (first element in this implementation).
+🔹 Partition the array into elements < pivot and > pivot.
+🔹 Recursively apply QuickSelect on the relevant partition depending on the target index.
+🔹 Stop when the pivot is at the target index.
+
+
+
+                              PROBLEM 2: sum-of-left-leaves
+
+Given the root of a binary tree, return the sum of all left leaves.
+A leaf is a node with no children. A left leaf is a leaf that is the left child of another node.
+
+Example 1:
+Input: root = [3,9,20,null,null,15,7]
+Output: 24
+
+Example 2:
+Input: root = [1]
+Output: 0
+ 
+Constraints:
+The number of nodes in the tree is in the range [1, 1000].
+-1000 <= Node.val <= 1000
+
+Explanation:
+
+Using Breadth-First Search (BFS) and store whether each node is a left child.
+
+🔹 Use a queue of (TreeNode, isLeft) pairs.
+🔹 Traverse the tree level by level.
+🔹 For each node, check if it’s a left leaf (isLeft = true, no children), then add its value to the result.
+🔹 Enqueue children accordingly and tag them as left/right.
