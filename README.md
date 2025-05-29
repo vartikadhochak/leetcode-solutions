@@ -1572,3 +1572,68 @@ Using Breadth-First Search (BFS) and store whether each node is a left child.
 🔹 Traverse the tree level by level.
 🔹 For each node, check if it’s a left leaf (isLeft = true, no children), then add its value to the result.
 🔹 Enqueue children accordingly and tag them as left/right.
+
+---------------------------------------------------------Day-30-----------------------------------------------------------
+
+                              PROBLEM 1: Finding-the-duplicate-number
+
+Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
+There is only one repeated number in nums, return this repeated number.
+You must solve the problem without modifying the array nums and using only constant extra space.
+
+Example 1:
+Input: nums = [1,3,4,2,2]
+Output: 2
+
+Example 2:
+Input: nums = [3,1,3,4,2]
+Output: 3
+
+Constraints:
+1 <= n <= 105
+nums.length == n + 1
+1 <= nums[i] <= n
+All the integers in nums appear only once except for precisely one integer which appears two or more times.  
+
+Explanation:
+
+🔹 Floyd’s Tortoise and Hare (Cycle Detection)
+Treat the array like a linked list:
+
+🔹 Each index points to nums[index], so you move through the array as if it's a linked structure.
+🔹 Use two pointers:
+• slow moves one step at a time.
+• fast moves two steps.
+🔹 First phase:
+Let them move until they meet inside the cycle.
+🔹 Second phase:
+Reset one pointer to the start.
+
+🔹 Move both one step at a time. The point where they meet again is the duplicate number (start of the cycle).
+
+                              PROBLEM 2: Diameter-of-binary-tree
+
+Given the root of a binary tree, return the length of the diameter of the tree.
+The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root.
+The length of a path between two nodes is represented by the number of edges between them.
+
+Example 1:
+Input: root = [1,2,3,4,5]
+Output: 3
+
+Example 2:
+Input: root = [1,2]
+Output: 1
+
+Constraints:
+The number of nodes in the tree is in the range [1, 104].
+-100 <= Node.val <= 100                              
+
+Explanation:
+🔹 Post-order DFS
+• Use a recursive function to find the depth (height) of each subtree.
+• While doing this:
+
+🔹 For every node, calculate leftHeight + rightHeight, which is the longest path through that node.
+🔹 Track the maximum of all such paths — that’s your diameter.
+🔹 The function returns the depth, but updates the global diameter as it goes.
