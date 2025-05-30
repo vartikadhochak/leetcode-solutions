@@ -1637,3 +1637,61 @@ Explanation:
 🔹 For every node, calculate leftHeight + rightHeight, which is the longest path through that node.
 🔹 Track the maximum of all such paths — that’s your diameter.
 🔹 The function returns the depth, but updates the global diameter as it goes.
+
+---------------------------------------------------------Day-30-----------------------------------------------------------
+
+                            PROBLEM 1: Maximum depth of a binary tree
+
+Given the root of a binary tree, return its maximum depth.
+A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+
+Example 1:
+Input: root = [3,9,20,null,null,15,7]
+Output: 3
+
+Example 2:
+Input: root = [1,null,2]
+Output: 2
+
+Constraints:
+The number of nodes in the tree is in the range [0, 104].
+-100 <= Node.val <= 100
+
+Explanation:
+🔹 Use recursion (DFS) to traverse the tree.
+🔹 At each node, compute the maximum depth of its left and right subtrees.
+🔹 Add 1 to the maximum of those two depths to account for the current node.
+🔹 Base Case:
+If the node is null, return 0 (no depth).
+🔹 Formula: maxDepth(node) = 1 + max(maxDepth(node.left), maxDepth(node.right))
+
+                            PROBLEM 2: Flipping an image
+
+Given an n x n binary matrix image, flip the image horizontally, then invert it, and return the resulting image.
+To flip an image horizontally means that each row of the image is reversed.
+For example, flipping [1,1,0] horizontally results in [0,1,1].
+To invert an image means that each 0 is replaced by 1, and each 1 is replaced by 0.
+For example, inverting [0,1,1] results in [1,0,0].
+
+Example 1:
+Input: image = [[1,1,0],[1,0,1],[0,0,0]]
+Output: [[1,0,0],[0,1,0],[1,1,1]]
+
+Example 2:
+Input: image = [[1,1,0,0],[1,0,0,1],[0,1,1,1],[1,0,1,0]]
+Output: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]
+
+Constraints:
+n == image.length
+n == image[i].length
+1 <= n <= 20
+images[i][j] is either 0 or 1.
+
+Explanation:
+🔹 Loop through each row of the matrix.
+🔹 Use two pointers (left and right) to reverse the row while inverting the bits at the same time:
+Swap and invert: 0 → 1, 1 → 0
+Use XOR (^ 1) for inversion (0^1 = 1, 1^1 = 0)
+🔹 Continue until left >= right.
+🔹 This combines flipping and inverting in a single pass with O(1) extra space.
+
