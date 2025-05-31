@@ -1695,3 +1695,52 @@ Use XOR (^ 1) for inversion (0^1 = 1, 1^1 = 0)
 🔹 Continue until left >= right.
 🔹 This combines flipping and inverting in a single pass with O(1) extra space.
 
+
+---------------------------------------------------------Day-31-----------------------------------------------------------
+
+                            PROBLEM 1: Rotate-image
+You are given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise).
+You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation.
+
+Example 1:
+Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+Output: [[7,4,1],[8,5,2],[9,6,3]]
+
+Example 2:
+Input: matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
+Output: [[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]
+
+Constraints:
+n == matrix.length == matrix[i].length
+1 <= n <= 20
+-1000 <= matrix[i][j] <= 1000
+
+Explanation:
+🔹 Transposing swaps elements at (i, j) with (j, i).
+🔹 Reversing a row swaps elements from both ends inward.
+
+
+                          PROBLEM 2: Binary-tree-level-order-traversal 
+
+Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
+
+Example 1:
+Input: root = [3,9,20,null,null,15,7]
+Output: [[3],[9,20],[15,7]]
+
+Example 2:
+Input: root = [1]
+Output: [[1]]
+
+Constraints:
+The number of nodes in the tree is in the range [0, 2000].
+-1000 <= Node.val <= 1000                          
+
+Explanation:
+
+🔹 If the tree is empty (root == null), return an empty list.
+🔹 Initialize a queue and add the root.
+🔹 While the queue is not empty: Get the number of nodes at the current level.
+🔹 Loop through these nodes:Poll each node, add its value to a temporary list.
+🔹 Add the node's children (if any) to the queue.
+🔹 Add the temporary list to the result list.
