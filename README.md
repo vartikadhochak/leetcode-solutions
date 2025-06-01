@@ -1638,7 +1638,7 @@ Explanation:
 🔹 Track the maximum of all such paths — that’s your diameter.
 🔹 The function returns the depth, but updates the global diameter as it goes.
 
----------------------------------------------------------Day-30-----------------------------------------------------------
+---------------------------------------------------------Day-31-----------------------------------------------------------
 
                             PROBLEM 1: Maximum depth of a binary tree
 
@@ -1696,7 +1696,7 @@ Use XOR (^ 1) for inversion (0^1 = 1, 1^1 = 0)
 🔹 This combines flipping and inverting in a single pass with O(1) extra space.
 
 
----------------------------------------------------------Day-31-----------------------------------------------------------
+---------------------------------------------------------Day-32-----------------------------------------------------------
 
                             PROBLEM 1: Rotate-image
 You are given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise).
@@ -1744,3 +1744,55 @@ Explanation:
 🔹 Loop through these nodes:Poll each node, add its value to a temporary list.
 🔹 Add the node's children (if any) to the queue.
 🔹 Add the temporary list to the result list.
+
+---------------------------------------------------------Day-32-----------------------------------------------------------
+
+                            PROBLEM 1: Binary Tree Right Side View
+
+Given the root of a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
+
+Example 1:
+Input: root = [1,2,3,null,5,null,4]
+Output: [1,3,4]
+
+Example 2:
+Input: root = [1,2,3,4,null,null,null,5]
+Output: [1,3,4,5]
+
+Constraints:
+The number of nodes in the tree is in the range [0, 100].
+-100 <= Node.val <= 100             
+
+Explanation:
+
+🔹 Use level order traversal (BFS) with a queue.
+🔹 At each level, capture the last node, which is visible from the right side.
+
+
+
+                            PROBLEM 2: Lexicographically Smallest Palindrome
+
+You are given a string s consisting of lowercase English letters, and you are allowed to perform operations on it. In one operation, you can replace a character in s with another lowercase English letter.
+Your task is to make s a palindrome with the minimum number of operations possible. If there are multiple palindromes that can be made using the minimum number of operations, make the lexicographically smallest one.
+
+A string a is lexicographically smaller than a string b (of the same length) if in the first position where a and b differ, string a has a letter that appears earlier in the alphabet than the corresponding letter in b.
+Return the resulting palindrome string.
+
+Example 1:
+Input: s = "egcfe"
+Output: "efcfe"
+
+Example 2:
+Input: s = "abcd"
+Output: "abba"
+
+Constraints:
+1 <= s.length <= 1000
+s consists of only lowercase English letters.
+
+Explanation:
+
+🔹 Use two pointers (i from start, j from end).
+🔹 If characters differ, replace the bigger one with the smaller to: Make it a palindrome.
+🔹 Ensure lexicographically smallest outcome.
+🔹 Do it only if characters differ to minimize operations.
