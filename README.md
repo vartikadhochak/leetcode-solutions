@@ -1745,7 +1745,7 @@ Explanation:
 🔹 Add the node's children (if any) to the queue.
 🔹 Add the temporary list to the result list.
 
----------------------------------------------------------Day-32-----------------------------------------------------------
+---------------------------------------------------------Day-33-----------------------------------------------------------
 
                             PROBLEM 1: Binary Tree Right Side View
 
@@ -1796,3 +1796,59 @@ Explanation:
 🔹 If characters differ, replace the bigger one with the smaller to: Make it a palindrome.
 🔹 Ensure lexicographically smallest outcome.
 🔹 Do it only if characters differ to minimize operations.
+
+---------------------------------------------------------Day-34-----------------------------------------------------------
+
+                    PROBLEM 1: Flatten-binary-tree-into-a-linked-list
+
+Given the root of a binary tree, flatten the tree into a "linked list":
+
+The "linked list" should use the same TreeNode class where the right child pointer points to the next node in the list and the left child pointer is always null.
+The "linked list" should be in the same order as a pre-order traversal of the binary tree.
+ 
+Example 1:
+Input: root = [1,2,5,3,4,null,6]
+Output: [1,null,2,null,3,null,4,null,5,null,6]
+
+Example 2:
+Input: root = []
+Output: []
+
+Constraints:
+The number of nodes in the tree is in the range [0, 2000].
+-100 <= Node.val <= 100
+
+Explanation: 
+
+Reverse Preorder Traversal:
+🔹 We use a reverse preorder traversal (i.e., right → left → root) because it helps us build the linked list backward.
+🔹 Traverse the right subtree first.
+🔹 Then traverse the left subtree.
+🔹 Modify current node:
+Set node.right = prev (the last visited node).
+Set node.left = null
+Update prev = node
+
+                       PROBLEM 2: Length-of-the-last-word
+
+Given a string s consisting of words and spaces, return the length of the last word in the string.
+A word is a maximal substring consisting of non-space characters only.
+
+Example 1:
+Input: s = "Hello World"
+Output: 5
+
+Example 2:
+Input: s = "   fly me   to   the moon  "
+Output: 4
+
+Constraints:
+1 <= s.length <= 104
+s consists of only English letters and spaces ' '.
+There will be at least one word in s 
+
+Explanation: 
+
+🔹 Trim the input to remove leading/trailing spaces.
+🔹 Traverse from the end and count characters until you hit a space.
+🔹 Stop when you’ve counted a word.
