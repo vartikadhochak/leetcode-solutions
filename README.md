@@ -1852,3 +1852,59 @@ Explanation:
 🔹 Trim the input to remove leading/trailing spaces.
 🔹 Traverse from the end and count characters until you hit a space.
 🔹 Stop when you’ve counted a word.
+
+---------------------------------------------------------Day-34-----------------------------------------------------------
+
+                          PROBLEM 1: Number-of-segments-in-a-string
+
+Given a string s, return the number of segments in the string.
+A segment is defined to be a contiguous sequence of non-space characters.
+
+Example 1:
+Input: s = "Hello, my name is John"
+Output: 5
+
+Example 2:
+Input: s = "Hello"
+Output: 1
+ 
+Constraints:
+0 <= s.length <= 300
+s consists of lowercase and uppercase English letters, digits, or one of the following characters "!@#$%^&*()_+-=',.:".
+The only space character in s is ' '.
+
+Explanation: 
+
+🔹Use split(" ") to separate words.
+🔹Filter out empty segments.
+
+                     PROBLEM 2: Lowest-common-ancestor-of-a-binary-tree
+
+Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
+
+According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”
+
+Example 1:
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
+Output: 3
+
+Example 2:
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
+Output: 5
+
+Constraints:
+The number of nodes in the tree is in the range [2, 105].
+-109 <= Node.val <= 109
+All Node.val are unique.
+p != q
+p and q will exist in the tree.
+
+Explanation: 
+
+🔹 If root is null, return null.
+🔹 If root is either p or q, return root.
+🔹 Recurse for left and right subtrees.
+🔹 If both return non-null, current root is LCA.
+🔹 Otherwise, return the non-null child.
+
+
