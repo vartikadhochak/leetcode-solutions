@@ -1853,7 +1853,7 @@ Explanation:
 🔹 Traverse from the end and count characters until you hit a space.
 🔹 Stop when you’ve counted a word.
 
----------------------------------------------------------Day-34-----------------------------------------------------------
+---------------------------------------------------------Day-35-----------------------------------------------------------
 
                           PROBLEM 1: Number-of-segments-in-a-string
 
@@ -1908,3 +1908,58 @@ Explanation:
 🔹 Otherwise, return the non-null child.
 
 
+---------------------------------------------------------Day-36-----------------------------------------------------------
+
+                          PROBLEM 1: Reverse-vowel-in-the-string
+
+Given a string s, reverse only all the vowels in the string and return it.
+The vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both lower and upper cases, more than once.
+Example 1:
+Input: s = "IceCreAm"
+Output: "AceCreIm"
+
+Example 2:
+Input: s = "leetcode"
+Output: "leotcede"
+
+Constraints:
+1 <= s.length <= 3 * 105
+s consist of printable ASCII characters.
+
+Explanation:
+
+🔹 Use two pointers (left and right) starting from both ends.
+🔹 Move inward until both pointers point to vowels.
+🔹 Swap those vowels.
+🔹 Repeat until the pointers meet
+
+
+                          PROBLEM 2: sum-root-to-leaf numbers
+
+You are given the root of a binary tree containing digits from 0 to 9 only.
+
+Each root-to-leaf path in the tree represents a number.
+For example, the root-to-leaf path 1 -> 2 -> 3 represents the number 123.
+Return the total sum of all root-to-leaf numbers. Test cases are generated so that the answer will fit in a 32-bit integer.
+
+A leaf node is a node with no children.
+ 
+Example 1:
+Input: root = [1,2,3]
+Output: 25
+
+Example 2:
+Input: root = [4,9,0,5,1]
+Output: 1026
+
+Constraints:
+The number of nodes in the tree is in the range [1, 1000].
+0 <= Node.val <= 9
+The depth of the tree will not exceed 10.
+
+Explanation:
+
+🔹 Use DFS (Depth First Search) to traverse each root-to-leaf path.
+🔹 While going down, keep a running pathSum.
+🔹 Multiply previous sum by 10 and add the current node's value.
+🔹 If you reach a leaf node, return the pathSum.
