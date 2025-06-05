@@ -1963,3 +1963,48 @@ Explanation:
 🔹 While going down, keep a running pathSum.
 🔹 Multiply previous sum by 10 and add the current node's value.
 🔹 If you reach a leaf node, return the pathSum.
+
+---------------------------------------------------------Day-37-----------------------------------------------------------
+
+                          PROBLEM 1:  First Palindromic String in an Array
+
+Given an array of strings words, return the first palindromic string in the array. If there is no such string, return an empty string "".
+
+A string is palindromic if it reads the same forward and backward.
+
+Example 1:
+Input: words = ["abc","car","ada","racecar","cool"]
+Output: "ada"
+
+Example 2:
+Input: words = ["notapalindrome","racecar"]
+Output: "racecar"
+
+Constraints:
+1 <= words.length <= 100
+1 <= words[i].length <= 100
+words[i] consists only of lowercase English letters.
+
+Explanation:
+
+To find the first palindromic string in an array, we simply iterate through each word and check whether it is a palindrome. A palindrome reads the same forwards and backwards, so we use a two-pointer approach: one pointer starts at the beginning of the word and the other at the end. We move them inward while comparing characters. If all characters match, the word is a palindrome. As soon as we find the first such word, we return it immediately. If no palindrome is found after checking all words, we return an empty string. This solution is efficient and operates in linear time relative to the total number of characters in the array.
+
+                          PROBLEM 2: Zigzag Level Order Traversal of Binary Tree
+
+Given the root of a binary tree, return the zigzag level order traversal of its nodes' values. (i.e., from left to right, then right to left for the next level and alternate between).
+
+Example 1:
+Input: root = [3,9,20,null,null,15,7]
+Output: [[3],[20,9],[15,7]]
+
+Example 2:
+Input: root = [1]
+Output: [[1]]
+
+Constraints:
+The number of nodes in the tree is in the range [0, 2000].
+-100 <= Node.val <= 100
+
+Explanation:
+
+To find the first palindromic string in an array, we simply iterate through each word and check whether it is a palindrome. A palindrome reads the same forwards and backwards, so we use a two-pointer approach: one pointer starts at the beginning of the word and the other at the end. We move them inward while comparing characters. If all characters match, the word is a palindrome. As soon as we find the first such word, we return it immediately. If no palindrome is found after checking all words, we return an empty string. This solution is efficient and operates in linear time relative to the total number of characters in the array.
