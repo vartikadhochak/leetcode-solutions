@@ -2008,3 +2008,51 @@ The number of nodes in the tree is in the range [0, 2000].
 Explanation:
 
 To find the first palindromic string in an array, we simply iterate through each word and check whether it is a palindrome. A palindrome reads the same forwards and backwards, so we use a two-pointer approach: one pointer starts at the beginning of the word and the other at the end. We move them inward while comparing characters. If all characters match, the word is a palindrome. As soon as we find the first such word, we return it immediately. If no palindrome is found after checking all words, we return an empty string. This solution is efficient and operates in linear time relative to the total number of characters in the array.
+
+
+---------------------------------------------------------Day-38-----------------------------------------------------------
+
+                          PROBLEM 1: valid-palindrome
+
+A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+Given a string s, return true if it is a palindrome, or false otherwise.
+
+Example 1:
+Input: s = "A man, a plan, a canal: Panama"
+Output: true
+
+Example 2:
+Input: s = "race a car"
+Output: false
+
+Constraints:
+1 <= s.length <= 2 * 105
+s consists only of printable ASCII characters.
+
+Explanation:
+
+Two pointers walk toward the centre. Each step ignores non-alphanumeric characters, then compares the remaining pair case-insensitively; a single mismatch ends the loop early. Every character is visited at most once, so the method runs in O(n) time and O(1) extra space.
+
+
+                          PROBLEM 2: search-in-the-binary-tree 
+
+You are given the root of a binary search tree (BST) and an integer val.
+Find the node in the BST that the node's value equals val and return the subtree rooted with that node. If such a node does not exist, return null.
+
+Example 1:
+Input: root = [4,2,7,1,3], val = 2
+Output: [2,1,3]
+
+Example 2:
+Input: root = [4,2,7,1,3], val = 5
+Output: []
+ 
+Constraints:
+The number of nodes in the tree is in the range [1, 5000].
+1 <= Node.val <= 107
+root is a binary search tree.
+1 <= val <= 107
+
+Explanation:
+
+The BST property lets us discard half the tree at every step: values smaller than the current node must lie left, larger ones right. The recursion therefore narrows the search path in O(h) time where h is the tree height, and uses only the call-stack for space.
