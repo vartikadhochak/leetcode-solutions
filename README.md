@@ -2056,3 +2056,59 @@ root is a binary search tree.
 Explanation:
 
 The BST property lets us discard half the tree at every step: values smaller than the current node must lie left, larger ones right. The recursion therefore narrows the search path in O(h) time where h is the tree height, and uses only the call-stack for space.
+
+---------------------------------------------------------Day-39-----------------------------------------------------------
+
+                     PROBLEM 1: Remove All Adjacent Duplicates in String
+
+You are given a string s consisting of lowercase English letters. A duplicate removal consists of choosing two adjacent and equal letters and removing them.
+
+We repeatedly make duplicate removals on s until we no longer can.
+Return the final string after all such duplicate removals have been made. It can be proven that the answer is unique.
+
+Example 1:
+Input: s = "abbaca"
+Output: "ca"
+
+Example 2:
+Input: s = "azxxzy"
+Output: "ay"
+ 
+Constraints:
+1 <= s.length <= 105
+s consists of lowercase English letters.
+
+Explanation:
+
+Scan the string once, use a stack (or StringBuilder acting as one). Push each char; if the top is the same as the incoming char, pop instead of pushing—effectively “cancelling” both. At the end, the stack holds the answer.
+Iterate over s, append to a StringBuilder if it’s empty or last char differs; otherwise deleteCharAt(len-1) to pop.
+Time/Space complexity:O(n) time, O(n) auxiliary space (worst case no removals).
+
+
+                          PROBLEM 2: insert-into-a-binary-search-tree
+
+You are given the root node of a binary search tree (BST) and a value to insert into the tree. Return the root node of the BST after the insertion. It is guaranteed that the new value does not exist in the original BST.
+
+Notice that there may exist multiple valid ways for the insertion, as long as the tree remains a BST after insertion. You can return any of them.
+
+Example 1:
+Input: root = [4,2,7,1,3], val = 5
+Output: [4,2,7,1,3,5]
+
+Example 2:
+Input: root = [40,20,60,10,30,50,70], val = 25
+Output: [40,20,60,10,30,50,70,null,null,25]
+
+Constraints:
+The number of nodes in the tree will be in the range [0, 104].
+-108 <= Node.val <= 108
+All the values Node.val are unique.
+-108 <= val <= 108
+It's guaranteed that val does not exist in the original BST.
+
+Explanation:
+
+Walk down the tree using BST rules: values < node.val go left, otherwise right. 
+When you hit null, create the new node and link it.
+A simple recursive helper (or iterative loop) suffices because each decision narrows the search space.
+Time/Space complexity:O(h) time, O(h) recursion stack; h is tree height ( O(log n) for balanced, O(n) worst-case skew).
