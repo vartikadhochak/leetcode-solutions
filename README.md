@@ -2112,3 +2112,58 @@ Walk down the tree using BST rules: values < node.val go left, otherwise right.
 When you hit null, create the new node and link it.
 A simple recursive helper (or iterative loop) suffices because each decision narrows the search space.
 Time/Space complexity:O(h) time, O(h) recursion stack; h is tree height ( O(log n) for balanced, O(n) worst-case skew).
+
+---------------------------------------------------------Day-40-----------------------------------------------------------
+
+                     PROBLEM 1: Rotate-String
+
+Given two strings s and goal, return true if and only if s can become goal after some number of shifts on s.
+A shift on s consists of moving the leftmost character of s to the rightmost position.
+For example, if s = "abcde", then it will be "bcdea" after one shift.
+ 
+Example 1:
+Input: s = "abcde", goal = "cdeab"
+Output: true
+
+Example 2:
+Input: s = "abcde", goal = "abced"
+Output: false
+ 
+Constraints:
+1 <= s.length, goal.length <= 100
+s and goal consist of lowercase English letters.
+
+Explanation:
+
+To determine if string s can become goal by rotating it, observe that any number of left shifts on s is just rotating characters to the end. If you concatenate s + s (e.g., "abcdeabcde"), all possible rotated versions of s appear as substrings in this combined string. So, we simply check if goal exists as a substring of s + s. If it does, s can be rotated to match goal. This solution runs in O(n) time and uses O(1) extra space.
+
+
+                     PROBLEM 2: Lowest-common-ancestor 
+
+Given a binary search tree (BST), find the lowest common ancestor (LCA) node of two given nodes in the BST.
+
+According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”
+
+Example 1:
+Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8
+Output: 6
+
+Example 2:
+Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4
+Output: 2
+
+Constraints:
+The number of nodes in the tree is in the range [2, 105].
+-109 <= Node.val <= 109
+All Node.val are unique.
+p != q
+p and q will exist in the BST.
+
+Explanation:
+
+In a Binary Search Tree (BST), the Lowest Common Ancestor (LCA) of two nodes p and q is the node where the paths to p and q split. Thanks to BST properties, we can find the LCA by comparing node values:
+If both p and q are less than the current node, LCA lies in the left subtree.
+If both are greater, LCA is in the right subtree.
+If one is on each side (or matches the current node), then the current node is the LCA.
+This approach is efficient and runs in O(h) time, where h is the height of the tree.
+
