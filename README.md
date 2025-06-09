@@ -2167,3 +2167,67 @@ If both are greater, LCA is in the right subtree.
 If one is on each side (or matches the current node), then the current node is the LCA.
 This approach is efficient and runs in O(h) time, where h is the height of the tree.
 
+
+---------------------------------------------------------Day-41-----------------------------------------------------------
+
+                     PROBLEM 1: Longest-common-prefix
+
+Write a function to find the longest common prefix string amongst an array of strings.
+If there is no common prefix, return an empty string "".
+
+Example 1:
+Input: strs = ["flower","flow","flight"]
+Output: "fl"
+
+Example 2:
+Input: strs = ["dog","racecar","car"]
+Output: ""
+
+Constraints:
+1 <= strs.length <= 200
+0 <= strs[i].length <= 200
+strs[i] consists of only lowercase English letters if it is non-empty.
+
+Explanation:
+
+Let prefix = strs[0].
+For each next word:
+While the word does not start with prefix, drop the last char of prefix.
+If prefix becomes empty, there is no common prefix.
+Whatever is left in prefix is the answer.
+
+                     PROBLEM 2: Delete-node-in-a-bst
+
+Given a root node reference of a BST and a key, delete the node with the given key in the BST. Return the root node reference (possibly updated) of the BST.
+
+Basically, the deletion can be divided into two stages:
+Search for a node to remove.
+If the node is found, delete the node.
+ 
+Example 1:
+Input: root = [5,3,6,2,4,null,7], key = 3
+Output: [5,4,6,2,null,null,7]
+
+Example 2:
+Input: root = [5,3,6,2,4,null,7], key = 0
+Output: [5,3,6,2,4,null,7]
+
+Constraints:
+The number of nodes in the tree is in the range [0, 104].
+-105 <= Node.val <= 105
+Each node has a unique value.
+root is a valid binary search tree.
+-105 <= key <= 105
+
+Explanation:
+
+To delete a node from a Binary Search Tree (BST), we follow a standard three-step process based on the node's structure:
+Search Phase: We recursively search for the node to delete using BST properties—if the key is less than the current node’s value, we go to the left subtree; if greater, we go to the right.
+
+Deletion Phase:
+
+Case 1 (Leaf Node): If the node has no children, we return null to delete it.
+Case 2 (One Child): If the node has only one child, we return that child to replace the current node.
+Case 3 (Two Children): This is the tricky part. We find the inorder successor of the node (the smallest node in the right subtree), copy its value to the node we want to delete, and then recursively delete the successor node from the right subtree.
+This approach ensures the BST properties are preserved after deletion.
+
