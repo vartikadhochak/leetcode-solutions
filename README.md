@@ -2231,3 +2231,56 @@ Case 2 (One Child): If the node has only one child, we return that child to repl
 Case 3 (Two Children): This is the tricky part. We find the inorder successor of the node (the smallest node in the right subtree), copy its value to the node we want to delete, and then recursively delete the successor node from the right subtree.
 This approach ensures the BST properties are preserved after deletion.
 
+---------------------------------------------------------Day-42-----------------------------------------------------------
+
+                     PROBLEM 1: Validate-binary-search-tree
+
+Given the root of a binary tree, determine if it is a valid binary search tree (BST).
+
+A valid BST is defined as follows:
+
+The left subtree of a node contains only nodes with keys less than the node's key.
+The right subtree of a node contains only nodes with keys greater than the node's key.
+Both the left and right subtrees must also be binary search trees.
+
+Example 1:
+Input: root = [2,1,3]
+Output: true
+
+Example 2:
+Input: root = [5,1,4,null,null,3,6]
+Output: false
+
+Constraints:
+The number of nodes in the tree is in the range [1, 104].
+-231 <= Node.val <= 231 - 1                
+
+Explanation:
+
+To check if a binary tree is a valid BST, we recursively verify that every node’s value lies within a valid range. For the root, the range is from Long.MIN_VALUE to Long.MAX_VALUE. For each left child, the upper bound becomes the parent’s value, and for the right child, the lower bound becomes the parent’s value. If any node violates this range, the tree is not a BST.
+
+                     PROBLEM 2: Reverse-words-in-a-string
+
+Given an input string s, reverse the order of the words.
+
+A word is defined as a sequence of non-space characters. The words in s will be separated by at least one space.
+Return a string of the words in reverse order concatenated by a single space.
+Note that s may contain leading or trailing spaces or multiple spaces between two words. The returned string should only have a single space separating the words. Do not include any extra spaces.
+
+Example 1:
+Input: s = "the sky is blue"
+Output: "blue is sky the"
+
+Example 2:
+Input: s = "  hello world  "
+Output: "world hello"
+
+
+Constraints:
+1 <= s.length <= 104
+s contains English letters (upper-case and lower-case), digits, and spaces ' '.
+There is at least one word in s.
+
+Explantion:
+
+The solution trims the input string to remove leading/trailing spaces and splits it using split("\\s+") to handle multiple spaces. It then appends the words in reverse order using a loop. This ensures that extra spaces are removed, and only a single space separates the words in the output.
