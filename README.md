@@ -2284,3 +2284,59 @@ There is at least one word in s.
 Explantion:
 
 The solution trims the input string to remove leading/trailing spaces and splits it using split("\\s+") to handle multiple spaces. It then appends the words in reverse order using a loop. This ensures that extra spaces are removed, and only a single space separates the words in the output.
+
+---------------------------------------------------------Day-42-----------------------------------------------------------
+
+                     PROBLEM 1: kth-smallest-element-in-a-bst
+
+Given the root of a binary search tree, and an integer k, return the kth smallest value (1-indexed) of all the values of the nodes in the tree.
+
+Example 1:
+Input: root = [3,1,4,null,2], k = 1
+Output: 1
+
+Example 2:
+Input: root = [5,3,6,2,4,null,null,1], k = 3
+Output: 3
+ 
+Constraints:
+The number of nodes in the tree is n.
+1 <= k <= n <= 104
+0 <= Node.val <= 104
+
+Explanation:
+
+Because an in-order traversal of a Binary Search Tree visits nodes in strictly ascending order, we can walk the tree left-root-right and stop as soon as we have visited k nodes—the value at that moment is exactly the k-th smallest. Recursion (or an explicit stack) keeps track of the path; its depth never exceeds the tree height, so the extra memory is O(h), where h ≤ n.
+
+Time / Space O(k + h) in the worst case (⩽ O(n)), O(h) extra space.
+ 
+                     PROBLEM 2: zigzag-conversion
+
+The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
+
+P   A   H   N
+A P L S I I G
+Y   I   R
+And then read line by line: "PAHNAPLSIIGYIR"
+
+Write the code that will take a string and make this conversion given a number of rows:
+string convert(string s, int numRows);
+ 
+Example 1:
+Input: s = "PAYPALISHIRING", numRows = 3
+Output: "PAHNAPLSIIGYIR"
+
+Example 2:
+Input: s = "PAYPALISHIRING", numRows = 4
+Output: "PINALSIGYAHRPI"
+
+Constraints:
+1 <= s.length <= 1000
+s consists of English letters (lower-case and upper-case), ',' and '.'.
+1 <= numRows <= 1000 
+
+Explanation:
+
+Visualise the zigzag as cycling downwards through the rows then diagonally back to the top: row indices follow a periodic “v-shape” 0→1→…→numRows-1→numRows-2→…→1→0→… We stream each character of the input string into an array of StringBuilders at the current row index, flipping direction at the top and bottom. Finally we concatenate the builders row by row to obtain the required reading order.
+
+Time / Space O(n) time and O(n) extra space (for the row buffers).
