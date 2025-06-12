@@ -2340,3 +2340,48 @@ Explanation:
 Visualise the zigzag as cycling downwards through the rows then diagonally back to the top: row indices follow a periodic “v-shape” 0→1→…→numRows-1→numRows-2→…→1→0→… We stream each character of the input string into an array of StringBuilders at the current row index, flipping direction at the top and bottom. Finally we concatenate the builders row by row to obtain the required reading order.
 
 Time / Space O(n) time and O(n) extra space (for the row buffers).
+
+
+---------------------------------------------------------Day-43-----------------------------------------------------------
+
+                     PROBLEM 1: Maximum-number-of-vowels-in-a-substring-of-given-length
+
+Given a string s and an integer k, return the maximum number of vowel letters in any substring of s with length k.
+Vowel letters in English are 'a', 'e', 'i', 'o', and 'u'.
+
+Example 1:
+Input: s = "abciiidef", k = 3
+Output: 3
+
+Example 2:
+Input: s = "aeiou", k = 2
+Output: 2
+
+Constraints:
+1 <= s.length <= 105
+s consists of lowercase English letters.
+1 <= k <= s.length
+
+Explanation:
+
+We use a sliding window approach of size k. As we move the window forward through the string s, we increase the vowel count for the incoming character and decrease it for the outgoing one. At each step, we track the maximum number of vowels in any window of length k. This ensures O(n) time and O(1) space using a Set for vowel lookup
+
+                     PROBLEM 2: Convert-sorted-list-to-binary-search-tree
+
+Given the head of a singly linked list where elements are sorted in ascending order, convert it to a height-balanced binary search tree.
+
+Example 1:
+Input: head = [-10,-3,0,5,9]
+Output: [0,-3,9,-10,null,5]
+
+Example 2:
+Input: head = []
+Output: []
+
+Constraints:
+The number of nodes in head is in the range [0, 2 * 104].
+-105 <= Node.val <= 105
+
+Explanation:
+
+To convert a sorted singly linked list into a height-balanced BST, we use a slow and fast pointer approach to find the middle node, which will become the root. We recursively build left and right subtrees from the left and right halves of the list. The function convert(start, end) processes each segment, and the middle becomes the node of current subtree. This ensures logarithmic height and balanced nature, with O(n log n) time complexity due to list traversal in each level.
