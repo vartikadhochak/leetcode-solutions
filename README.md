@@ -2285,7 +2285,7 @@ Explantion:
 
 The solution trims the input string to remove leading/trailing spaces and splits it using split("\\s+") to handle multiple spaces. It then appends the words in reverse order using a loop. This ensures that extra spaces are removed, and only a single space separates the words in the output.
 
----------------------------------------------------------Day-42-----------------------------------------------------------
+---------------------------------------------------------Day-43-----------------------------------------------------------
 
                      PROBLEM 1: kth-smallest-element-in-a-bst
 
@@ -2342,7 +2342,7 @@ Visualise the zigzag as cycling downwards through the rows then diagonally back 
 Time / Space O(n) time and O(n) extra space (for the row buffers).
 
 
----------------------------------------------------------Day-43-----------------------------------------------------------
+---------------------------------------------------------Day-44-----------------------------------------------------------
 
                      PROBLEM 1: Maximum-number-of-vowels-in-a-substring-of-given-length
 
@@ -2385,3 +2385,68 @@ The number of nodes in head is in the range [0, 2 * 104].
 Explanation:
 
 To convert a sorted singly linked list into a height-balanced BST, we use a slow and fast pointer approach to find the middle node, which will become the root. We recursively build left and right subtrees from the left and right halves of the list. The function convert(start, end) processes each segment, and the middle becomes the node of current subtree. This ensures logarithmic height and balanced nature, with O(n log n) time complexity due to list traversal in each level.
+
+
+---------------------------------------------------------Day-45-----------------------------------------------------------
+
+                     PROBLEM 1: Find-the-town-judge
+
+In a town, there are n people labeled from 1 to n. There is a rumor that one of these people is secretly the town judge.
+
+If the town judge exists, then:
+
+The town judge trusts nobody.
+Everybody (except for the town judge) trusts the town judge.
+There is exactly one person that satisfies properties 1 and 2.
+You are given an array trust where trust[i] = [ai, bi] representing that the person labeled ai trusts the person labeled bi. If a trust relationship does not exist in trust array, then such a trust relationship does not exist.
+
+Return the label of the town judge if the town judge exists and can be identified, or return -1 otherwise.
+
+Example 1:
+Input: n = 2, trust = [[1,2]]
+Output: 2
+
+Example 2:
+Input: n = 3, trust = [[1,3],[2,3]]
+Output: 3
+
+Constraints:
+1 <= n <= 1000
+0 <= trust.length <= 104
+trust[i].length == 2
+All the pairs of trust are unique.
+ai != bi
+1 <= ai, bi <= n
+
+Explanation:
+
+We maintain a trust score for each person.
+If person a trusts person b, then:
+Decrease a's trust score by 1 (since they trust someone — they can't be the judge),
+Increase b's trust score by 1 (since someone trusts them — possibly the judge).
+At the end, the judge will have a trust score of n - 1, and have trusted nobody (i.e., they didn't lose any points).
+
+
+                     PROBLEM 2: Greatest-common-divisor-of-strings
+
+For two strings s and t, we say "t divides s" if and only if s = t + t + t + ... + t + t (i.e., t is concatenated with itself one or more times).
+
+Given two strings str1 and str2, return the largest string x such that x divides both str1 and str2.
+
+Example 1:
+Input: str1 = "ABCABC", str2 = "ABC"
+Output: "ABC"
+
+Example 2:
+Input: str1 = "ABABAB", str2 = "ABAB"
+Output: "AB"
+
+Constraints:
+1 <= str1.length, str2.length <= 1000
+str1 and str2 consist of English uppercase letters.
+
+Explanation:
+
+If two strings can be constructed by repeating the same substring, then their GCD string will also divide both.
+If str1 + str2 != str2 + str1, that means they don’t share a common pattern → return "".
+Otherwise, use the GCD of their lengths to get the substring.
