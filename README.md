@@ -2450,3 +2450,60 @@ Explanation:
 If two strings can be constructed by repeating the same substring, then their GCD string will also divide both.
 If str1 + str2 != str2 + str1, that means they don’t share a common pattern → return "".
 Otherwise, use the GCD of their lengths to get the substring.
+
+---------------------------------------------------------Day-46-----------------------------------------------------------
+
+                     PROBLEM 1: Find Center of Star Graph
+
+There is an undirected star graph consisting of n nodes labeled from 1 to n. A star graph is a graph where there is one center node and exactly n - 1 edges that connect the center node with every other node.
+
+You are given a 2D integer array edges where each edges[i] = [ui, vi] indicates that there is an edge between the nodes ui and vi. Return the center of the given star graph.
+
+Example 1:
+Input: edges = [[1,2],[2,3],[4,2]]
+Output: 2
+
+Example 2:
+Input: edges = [[1,2],[5,1],[1,3],[1,4]]
+Output: 1
+
+Constraints:
+3 <= n <= 105
+edges.length == n - 1
+edges[i].length == 2
+1 <= ui, vi <= n
+ui != vi
+The given edges represent a valid star graph.
+
+Explanation:
+
+Since the center node is common in all edges, we can determine it by checking the first two edges.
+The node that appears in both the first edge (edges[0]) and the second edge (edges[1]) must be the center.
+For example, if the first edge is [1, 2] and the second edge is [2, 3], the common node 2 is the center.
+This approach works because the center is the only node shared across all edges, making it easy to identify with just two comparisons. The time complexity is O(1) since we only examine the first two edges, regardless of the graph size.
+
+                     PROBLEM 2: Prime Number of Set Bits
+
+Given two integers left and right, return the count of numbers in the inclusive range [left, right] having a prime number of set bits in their binary representation.
+Recall that the number of set bits an integer has is the number of 1's present when written in binary.
+
+For example, 21 written in binary is 10101, which has 3 set bits.
+ 
+Example 1:
+Input: left = 6, right = 10
+Output: 4
+
+Example 2:
+Input: left = 10, right = 15
+Output: 5
+
+Constraints:
+1 <= left <= right <= 106
+0 <= right - l
+
+Explanation:
+
+Iterate through each number in the range [left, right].
+For each number, compute its set bits using Integer.bitCount(), a fast built-in method in Java.
+Check if the count of set bits is a prime number using a helper function isPrime().
+If it is prime, increment the result count.
