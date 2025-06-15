@@ -2507,3 +2507,55 @@ Iterate through each number in the range [left, right].
 For each number, compute its set bits using Integer.bitCount(), a fast built-in method in Java.
 Check if the count of set bits is a prime number using a helper function isPrime().
 If it is prime, increment the result count.
+
+---------------------------------------------------------Day-47-----------------------------------------------------------
+
+                     PROBLEM 1: Number of Set Bit
+
+Given a positive integer n, write a function that returns the number of set bits in its binary representation (also known as the Hamming weight).
+
+Example 1:
+Input: n = 11
+Output: 3
+
+Example 2:
+Input: n = 128
+Output: 1
+
+Constraints:
+1 <= n <= 231 - 1
+
+Explanation:
+
+The problem requires counting the number of 1s (set bits) in the binary representation of a given integer. We can achieve this by repeatedly checking the least significant bit (LSB) of the number and right-shifting the number until it becomes zero. Each time the LSB is 1, we increment our count.
+
+Explanation:
+
+Initialization: We start with a count set to zero.
+Loop: While the number n is not zero:
+Check LSB: We use n & 1 to check the least significant bit. If it's 1, we increment the count.
+Right Shift: We then right-shift n by 1 bit to process the next bit. We use the unsigned right shift operator >>> to handle negative numbers correctly.
+Return: The count of set bits is returned after the loop exits.
+
+          PROBLEM 2:  Number of Substrings Containing All Three Characters
+
+Given a string s consisting only of characters a, b and c.
+Return the number of substrings containing at least one occurrence of all these characters a, b and c.
+
+Example 1:
+Input: s = "abcabc"
+Output: 10
+
+Example 2:
+Input: s = "aaacb"
+Output: 3
+
+Constraints:
+3 <= s.length <= 5 x 10^4
+s only consists of a, b or c characters.
+
+Explanation:
+
+Hamming Weight: The first problem is straightforward, using bit manipulation to count set bits efficiently. The unsigned right shift ensures correct handling of negative numbers.
+
+Substring Count: The second problem leverages the sliding window technique to efficiently count valid substrings by maintaining a window that contains all three characters, thus optimizing the solution from O(n^2) to O(n).
