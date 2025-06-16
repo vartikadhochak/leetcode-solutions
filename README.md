@@ -2559,3 +2559,49 @@ Explanation:
 Hamming Weight: The first problem is straightforward, using bit manipulation to count set bits efficiently. The unsigned right shift ensures correct handling of negative numbers.
 
 Substring Count: The second problem leverages the sliding window technique to efficiently count valid substrings by maintaining a window that contains all three characters, thus optimizing the solution from O(n^2) to O(n).
+
+The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
+
+---------------------------------------------------------Day-48-----------------------------------------------------------
+
+                     PROBLEM 1: Hamming-distance
+
+Given two integers x and y, return the Hamming distance between them.
+
+Example 1:
+Input: x = 1, y = 4
+Output: 2
+
+Example 2:
+Input: x = 3, y = 1
+Output: 1
+
+Constraints:
+0 <= x, y <= 231 - 1
+
+Explanation:
+
+The Hamming distance between two integers is the number of positions at which the corresponding bits are different. To compute this, we first perform a bitwise XOR operation between the two numbers. The XOR operation results in a number where each bit is set to 1 if the corresponding bits of x and y are different. Then, we count the number of 1 bits in the resulting number using Integer.bitCount(), which gives us the Hamming distance. For example, 1 (0001) XOR 4 (0100) gives 5 (0101), which has two 1 bits, so the Hamming distance is 2.
+
+
+                     PROBLEM 2: Check-if-it-is-a-good-array
+
+Given an array nums of positive integers. Your task is to select some subset of nums, multiply each element by an integer and add all these numbers. The array is said to be good if you can obtain a sum of 1 from the array by any possible subset and multiplicand.
+
+Return True if the array is good otherwise return False.
+
+Example 1:
+Input: nums = [12,5,7,23]
+Output: true
+
+Example 2:
+Input: nums = [29,6,10]
+Output: true
+
+Constraints:
+1 <= nums.length <= 10^5
+1 <= nums[i] <= 10^9                                          
+
+Explanation:
+
+An array is considered "good" if the greatest common divisor (GCD) of all its elements is 1. This is based on the mathematical property that if the GCD of the array elements is 1, there exists a linear combination of the elements (with integer coefficients) that sums to 1. The solution iterates through the array, computing the GCD of all elements incrementally. If at any point the GCD becomes 1, it returns true immediately. If the loop completes without the GCD becoming 1, it returns false. For example, the GCD of [12, 5, 7, 23] is 1, so the array is good. The gcd method uses the Euclidean algorithm to compute the GCD efficiently.
