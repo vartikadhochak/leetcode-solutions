@@ -2605,3 +2605,71 @@ Constraints:
 Explanation:
 
 An array is considered "good" if the greatest common divisor (GCD) of all its elements is 1. This is based on the mathematical property that if the GCD of the array elements is 1, there exists a linear combination of the elements (with integer coefficients) that sums to 1. The solution iterates through the array, computing the GCD of all elements incrementally. If at any point the GCD becomes 1, it returns true immediately. If the loop completes without the GCD becoming 1, it returns false. For example, the GCD of [12, 5, 7, 23] is 1, so the array is good. The gcd method uses the Euclidean algorithm to compute the GCD efficiently.
+
+---------------------------------------------------------Day-49-----------------------------------------------------------
+
+                     PROBLEM 1: Count-Prime
+
+Given an integer n, return the number of prime numbers that are strictly less than n.
+
+Example 1:
+Input: n = 10
+Output: 4
+
+Example 2:
+Input: n = 0
+Output: 0
+
+Constraints:
+0 <= n <= 5 * 106
+
+Explanation :
+
+This algorithm counts all prime numbers less than a given integer n efficiently using the Sieve of Eratosthenes. A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself. The approach works by iteratively marking the multiples of each prime number starting from 2.
+
+Initialization: A boolean array isPrime of size n is created, where each index initially assumes true (indicating a potential prime).
+
+Base Cases: 0 and 1 are explicitly set to false since they are not primes.
+
+Marking Non-Primes: For each number i starting from 2 up to √n, if i is still marked as prime, all its multiples (i*i, i*i + i, ...) are marked as non-prime (false).
+
+Counting Primes: Finally, the algorithm counts all remaining true values in the array, which represent prime numbers.
+
+This method efficiently eliminates non-prime numbers in O(n log log n) time, making it much faster than checking each number individually
+
+
+                     PROBLEM 2: Single-Number
+
+Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+
+You must implement a solution with a linear runtime complexity and use only constant extra space.
+
+Example 1:
+Input: nums = [2,2,1]
+Output: 1
+
+Example 2:
+Input: nums = [4,1,2,1,2]
+Output: 4
+
+Constraints:
+
+1 <= nums.length <= 3 * 104
+-3 * 104 <= nums[i] <= 3 * 104
+Each element in the array appears twice except for one element which appears only once
+
+Explanation :
+
+Given an array where every element appears twice except one, this algorithm finds the unique number using the bitwise XOR operation. XOR (^) has two key properties:
+
+Cancellation Property: a ^ a = 0 (XORing a number with itself cancels it out).
+
+Identity Property: a ^ 0 = a (XORing with zero leaves the number unchanged).
+
+Initialization: Start with a variable index set to 0.
+
+Iterate Through Array: For each number in the array, perform index ^= num.
+
+Result: After processing all numbers, duplicates cancel out (a ^ a = 0), leaving only the unique number (0 ^ unique = unique).
+
+This approach runs in O(n) time with O(1) space, making it optimal for the problem constraints.
