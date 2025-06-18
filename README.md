@@ -2673,3 +2673,38 @@ Iterate Through Array: For each number in the array, perform index ^= num.
 Result: After processing all numbers, duplicates cancel out (a ^ a = 0), leaving only the unique number (0 ^ unique = unique).
 
 This approach runs in O(n) time with O(1) space, making it optimal for the problem constraints.
+
+---------------------------------------------------------Day-50-----------------------------------------------------------
+
+                     PROBLEM 1: Break-a-palindrome
+
+Given a palindromic string of lowercase English letters palindrome, replace exactly one character with any lowercase English letter so that the resulting string is not a palindrome and that it is the lexicographically smallest one possible.
+
+Return the resulting string. If there is no way to replace a character to make it not a palindrome, return an empty string.
+
+A string a is lexicographically smaller than a string b (of the same length) if in the first position where a and b differ, a has a character strictly smaller than the corresponding character in b. For example, "abcc" is lexicographically smaller than "abcd" because the first position they differ is at the fourth character, and 'c' is smaller than 'd'.
+
+Example 1:
+Input: palindrome = "abccba"
+Output: "aaccba"
+
+Example 2:
+Input: palindrome = "a"
+Output: ""
+ 
+Constraints:
+
+1 <= palindrome.length <= 1000
+palindrome consists of only lowercase English letters
+
+Explanation :
+
+There are one of 2 states:
+
+If the characer is not an 'a,' change it to be an 'a' to break the palindrome and make it lexiographically smaller
+if all the characters are 'a' change the last letter to be a 'b' to break the palindrome, and since it's the last letter, increasing it to a 'b' will minimize the increase in lexicographical order.
+PROCESS
+We do this by converting the string into a char[] array. Note, we only need to iterate until arr.length/2 because it is guaranteed that anything afterwards is a repetition of the characters we have already encountered. Also, arr.length/2 avoids the error of changing the center character in an odd-lengthed string, which has no effect on it.
+
+EX: "aabaa" -> "aaaaa" is still a palindrome | therefore, arr.length/2, which is 2, will not reach the middle character.
+EX: "aaaaa" -> "aaaab" is the smallest. We need to change the LAST non-a because anything else will be larger ( "aaaba" > "aaaab" in the dictionary)
